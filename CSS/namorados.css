@@ -110,11 +110,6 @@
     }
 }
 
-/* Menu de navegação interna */
-.conteudo-namorados nav {
-    margin-bottom: 30px;
-}
-
 /* GRID DE PRODUTOS — Mobile: lista vertical de cards horizontais */
 .grid-produtos-namorados {
     display: flex;
