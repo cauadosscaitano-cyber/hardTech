@@ -1,0 +1,520 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #081f3f;
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+header {
+    height: 70px;
+    background: #081f3f;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    border-bottom: 2px solid #d8b16f;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+@media (min-width: 768px) {
+    header {
+        height: 90px;
+        padding: 0 40px;
+    }
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-area img {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+}
+
+@media (min-width: 768px) {
+    .logo-area img {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+.logo-area h1 {
+    color: #ffffff;
+    font-size: 22px;
+    letter-spacing: 2px;
+    font-family: Arial, sans-serif;
+}
+
+@media (min-width: 768px) {
+    .logo-area h1 {
+        font-size: 32px;
+    }
+}
+
+/* ============================================================
+   SEARCH FORM
+   ============================================================ */
+.search-form {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    position: relative;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+@media (min-width: 768px) {
+    .search-form {
+        display: flex;
+        margin-right: 15px;
+        margin-left: 20px;
+    }
+}
+
+.input {
+    border: none;
+    height: 42px;
+    width: 42px;
+    padding: 10px;
+    outline: none;
+    border-radius: 50%;
+    transition: 0.5s ease-in-out;
+    background-color: #0c3165;
+    box-shadow: 0 0 3px #0e3d7f;
+    padding-right: 40px;
+    color: #fff;
+}
+
+.input,
+.input::placeholder {
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    font-size: 15px;
+}
+
+@media (min-width: 768px) {
+    .input {
+        height: 50px;
+        width: 50px;
+        font-size: 17px;
+    }
+}
+
+.input::placeholder {
+    color: #8f8f8f;
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 0;
+    width: 42px;
+    height: 42px;
+    border: none;
+    outline: none;
+    border-radius: 50%;
+    cursor: pointer;
+    background: transparent;
+    transition: 0.2s linear;
+}
+
+@media (min-width: 768px) {
+    .icon {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+.icon:focus ~ .input,
+.input:focus {
+    width: 180px;
+    border-radius: 0;
+    background: transparent;
+    border-bottom: 3px solid #1557c0;
+    box-shadow: none;
+    transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2);
+}
+
+@media (min-width: 768px) {
+    .icon:focus ~ .input,
+    .input:focus {
+        width: 250px;
+    }
+}
+
+/* ============================================================
+   HAMBURGER BUTTON (mobile only)
+   ============================================================ */
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    z-index: 1100;
+    flex-shrink: 0;
+}
+
+.hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #ffffff;
+    border-radius: 2px;
+    transition: 0.3s ease;
+}
+
+.hamburger.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+.hamburger.open span:nth-child(2) {
+    opacity: 0;
+}
+.hamburger.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+@media (min-width: 992px) {
+    .hamburger {
+        display: none;
+    }
+}
+
+/* ============================================================
+   OVERLAY (mobile nav backdrop)
+   ============================================================ */
+.nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 998;
+}
+
+.nav-overlay.visible {
+    display: block;
+}
+
+/* ============================================================
+   NAV LATERAL
+   ============================================================ */
+
+/* Remove a setinha padrão do details */
+summary::-webkit-details-marker { display: none; }
+summary { list-style: none; }
+
+nav {
+    width: 260px;
+    background: #081f3f;
+    border-right: 2px solid #d8b16f;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    bottom: 0;
+    z-index: 999;
+    overflow: visible; /* desktop: submenus saem lateralmente */
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 30px;
+
+    /* Mobile: escondido fora da tela por padrão */
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+/* Mobile/tablet: scroll vertical no nav aberto */
+@media (max-width: 991px) {
+    nav {
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+}
+
+@media (min-width: 768px) {
+    nav {
+        top: 90px;
+    }
+}
+
+@media (min-width: 992px) {
+    nav {
+        transform: translateX(0); /* sempre visível em desktop */
+        width: 250px;
+        overflow: visible; /* permite que o submenu saia para fora do nav lateralmente */
+    }
+}
+
+nav.nav-open {
+    transform: translateX(0);
+}
+
+nav ul {
+    list-style: none;
+}
+
+/* ============================================================
+   DETAILS / SUBMENUS
+   ============================================================ */
+details {
+    position: relative;
+    width: 100%;
+}
+
+/* Mobile/tablet: submenu expande para baixo, dentro do nav */
+@media (max-width: 991px) {
+    details ul {
+        display: none;
+        position: static;
+        left: auto;
+        top: auto;
+        min-width: unset;
+        width: 100%;
+        background: #0d2c57;
+        border: 1px solid #d8b16f;
+        border-top: none;
+        box-shadow: none;
+        z-index: 1000;
+    }
+
+    details[open] ul {
+        display: block;
+    }
+}
+
+/* Desktop: submenu flutua para o lado direito do nav */
+@media (min-width: 992px) {
+    details ul {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 100%;
+        min-width: 220px;
+        background: #0d2c57;
+        border: 1px solid #d8b16f;
+        border-left: none;
+        box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+        z-index: 1000;
+    }
+
+    details[open] ul {
+        display: block;
+    }
+}
+
+nav a,
+summary {
+    display: block;
+    padding: 16px 25px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 500;
+    transition: .3s;
+}
+
+@media (min-width: 768px) {
+    nav a,
+    summary {
+        font-size: 20px;
+        padding: 18px 25px;
+    }
+}
+
+nav a:hover,
+summary:hover {
+    background: #10366d;
+    color: #d8b16f;
+    padding-left: 35px;
+    cursor: pointer;
+}
+
+.menu-ativo {
+    background: #10366d;
+    color: #d8b16f !important;
+    border-left: 5px solid #d8b16f;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.rodape-hardtech {
+    background: #06162c;
+    color: #ffffff;
+    padding: 40px 20px 20px 20px;
+    margin-top: 60px;
+    border-top: 3px solid #d8b16f;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+@media (min-width: 992px) {
+    .rodape-hardtech {
+        margin-left: 250px;
+        padding: 50px 30px 20px 30px;
+    }
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+@media (min-width: 768px) {
+    .footer-container {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 40px;
+    }
+}
+
+.footer-coluna h3 {
+    color: #d8b16f;
+    font-size: 16px;
+    margin-bottom: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+@media (min-width: 768px) {
+    .footer-coluna h3 {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+}
+
+.footer-coluna ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-coluna ul li {
+    margin-bottom: 10px;
+}
+
+@media (min-width: 768px) {
+    .footer-coluna ul li {
+        margin-bottom: 12px;
+    }
+}
+
+.footer-coluna ul li a {
+    color: #b0c4de;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s ease;
+}
+
+@media (min-width: 768px) {
+    .footer-coluna ul li a {
+        font-size: 15px;
+    }
+}
+
+.footer-coluna ul li a:hover {
+    color: #ffffff;
+    padding-left: 5px;
+}
+
+.footer-form {
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    border-radius: 6px;
+    padding: 5px;
+    margin-bottom: 25px;
+}
+
+.footer-form input {
+    border: none;
+    background: transparent;
+    padding: 10px;
+    width: 100%;
+    outline: none;
+    color: #081f3f;
+    font-size: 14px;
+}
+
+.footer-form button {
+    border: none;
+    background: #d8b16f;
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+.footer-form button:hover {
+    background: #c29d5c;
+}
+
+.iconos-redes {
+    display: flex;
+    gap: 12px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    background: #ffffff;
+    color: #081f3f;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.social-btn:hover {
+    background: #d8b16f;
+    color: #06162c;
+    transform: translateY(-3px);
+}
+
+.footer-direitos {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #102d54;
+    font-size: 12px;
+    color: #7f99b9;
+}
+
+@media (min-width: 768px) {
+    .footer-direitos {
+        margin-top: 50px;
+        font-size: 13px;
+    }
+}

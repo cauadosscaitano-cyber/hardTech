@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../img/hardtech_logo_v1_2-Photoroom.png">
+    <link rel="stylesheet" href="../CSS/layout.css">
+    <link rel="stylesheet" href="../CSS/pagamento.css">
+    <link rel="stylesheet" href="../CSS/temas/tema-form.css">
+    <title>HARDTECH</title>
+</head>
+<body>
+
+    <form id="formPagamento">
+
+    <h1>Finalizar Compra</h1>
+
+    <section class="card">
+
+        <h2>Dados do Cliente</h2>
+
+        <label>
+            Nome Completo
+            <input type="text" id="nome" required>
+        </label>
+
+        <label>
+            E-mail
+            <input type="email" id="email" required>
+        </label>
+
+        <label>
+            CPF
+            <input type="text" id="cpf" required>
+        </label>
+
+        <label>
+            Telefone
+            <input type="tel" id="telefone" required>
+        </label>
+
+        <label>
+            Endereço
+            <input type="text" id="endereco" required>
+        </label>
+
+    </section>
+
+    <section class="card">
+
+        <h2>Pagamento</h2>
+
+        <label>
+            Número do Cartão
+            <input type="text" id="cartao" required>
+        </label>
+
+        <label>
+            Nome no Cartão
+            <input type="text" id="nomeCartao" required>
+        </label>
+
+        <label>
+            Validade
+            <input type="month" id="validade" required>
+        </label>
+
+        <label>
+            CVV
+            <input type="password" id="cvv" maxlength="3" required>
+        </label>
+
+        <label>
+            Forma de Pagamento
+            <select id="formaPagamento">
+                <option>Cartão de Crédito</option>
+                <option>Cartão de Débito</option>
+                <option>PIX</option>
+                <option>Boleto</option>
+            </select>
+        </label>
+
+    </section>
+
+    <section class="acoes">
+        <button type="submit">Confirmar Compra</button>
+        <button type="reset">Limpar</button>
+    </section>
+
+</form>
+
+    <section id="confirmacao" class="card-resumo">
+    <h2>Resumo da Compra</h2>
+    
+    <article class="resumo-container">
+        
+        <figure class="resumo-imagem-box">
+            <img id="resImgProduto" src="../img/hardtech_logo_v1_2-Photoroom.png" alt="Imagem do Produto" class="img-produto-resumo">
+        </figure>
+
+        <section class="resumo-dados">
+            
+            <p class="detalhe-item produto-destaque">
+                <span class="label-detalhe">Produto:</span>
+                <strong id="resProduto" class="valor-detalhe text-blue">-</strong>
+            </p>
+            
+            <p class="detalhe-item preco-destaque-box">
+                <span class="label-detalhe">Valor Total:</span>
+                <strong id="resPreco" class="valor-detalhe text-gold">-</strong>
+            </p>
+
+            <hr class="divisor-resumo">
+
+            <dl class="detalhe-grid-dados">
+                <dt><strong>Nome:</strong></dt>
+                <dd><span id="resNome">-</span></dd>
+
+                <dt><strong>E-mail:</strong></dt>
+                <dd><span id="resEmail">-</span></dd>
+
+                <dt><strong>Forma de Pagamento:</strong></dt>
+                <dd><span id="resPagamento">-</span></dd>
+
+                <dt><strong>CPF:</strong></dt>
+                <dd><span id="resCpf">-</span></dd>
+
+                <dt><strong>Telefone:</strong></dt>
+                <dd><span id="resTelefone">-</span></dd>
+            </dl>
+        </section>
+    </article>
+
+    <section class="acoes-resumo">
+        <button type="button" onclick="enviarCompra()" class="btn-finalizar-total">Confirmar e Finalizar Pedido</button>
+    </section>
+</section>
+    <script src="../javaScript/layout.js"></script>
+    <script src="../javaScript/pagamento.js"></script>
+</body>
+</html>

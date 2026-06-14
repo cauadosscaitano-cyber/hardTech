@@ -1,0 +1,352 @@
+/* ==========================================================================
+   TELA DE CONTATO - HARDTECH THEME (BASEADO NO PAGAMENTO)
+   ========================================================================== */
+body {
+    background: #f4f6f9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 30px;
+    color: #333333;
+}
+
+#formContato {
+    max-width: 900px;
+    margin: 40px auto;
+}
+
+h1 {
+    text-align: center;
+    color: #081f3f; /* Azul escuro oficial */
+    margin-bottom: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Cards do Formulário */
+.card {
+    background: white;
+    padding: 30px;
+    margin-bottom: 25px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(8, 31, 63, 0.05);
+    border: 1px solid #e2e8f0;
+    
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* Cabeçalhos internos dos Cards */
+.card h2 {
+    grid-column: 1 / -1;
+    background: #081f3f;
+    color: #ffffff;
+    padding: 15px 20px;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    border-left: 5px solid #d8b16f; /* Dourado */
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+/* Labels, Inputs e Textarea */
+label {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-weight: 600;
+    color: #081f3f;
+    font-size: 14px;
+}
+
+/* Força o campo de mensagem a ocupar as duas colunas do grid */
+.full-width {
+    grid-column: 1 / -1;
+}
+
+input,
+textarea {
+    padding: 12px 16px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 15px;
+    color: #081f3f;
+    background-color: #f8fafc;
+    transition: all 0.3s ease;
+    outline: none;
+    font-family: inherit;
+}
+
+textarea {
+    resize: vertical; /* Permite esticar apenas para baixo */
+}
+
+input:focus,
+textarea:focus {
+    border-color: #d8b16f;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(216, 177, 111, 0.2);
+}
+
+/* Área dos Botões */
+.acoes {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+button {
+    padding: 15px 40px;
+    border: none;
+    border-radius: 8px;
+    background: #081f3f;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(8, 31, 63, 0.2);
+}
+
+button:hover {
+    background: #d8b16f;
+    color: #081f3f;      
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(216, 177, 111, 0.4);
+}
+
+.btn-limpar {
+    background: #e2e8f0;
+    color: #4a5568;
+    box-shadow: none;
+}
+
+.btn-limpar:hover {
+    background: #cbd5e1;
+    color: #333333;
+    box-shadow: none;
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   ÁREA DE CONFIRMAÇÃO / RESUMO DO CONTATO
+   ========================================================================== */
+#confirmacao {
+    display: none; /* Ativado dinamicamente via JS */
+    max-width: 900px;
+    margin: 40px auto;
+    background: white;
+    padding: 35px;
+    border-radius: 12px;
+    border-top: 5px solid #d8b16f;
+    box-shadow: 0 12px 32px rgba(8, 31, 63, 0.1);
+    box-sizing: border-box;
+}
+
+#confirmacao h2 {
+    text-align: center;
+    color: #081f3f;
+    font-size: 24px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.contato-resumo-ajuste {
+    display: block; /* Remove o grid da imagem para focar no texto */
+}
+
+.resumo-dados {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.detalhe-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+}
+
+.produto-destaque {
+    font-size: 18px;
+    border-bottom: 1px dashed #e2e8f0;
+    padding-bottom: 8px;
+}
+
+.text-blue { color: #081f3f; }
+.text-gold { color: #d8b16f; font-weight: 700; }
+
+.divisor-resumo {
+    border: 0;
+    border-top: 1px solid #e2e8f0;
+    margin: 10px 0;
+}
+
+.detalhe-grid-dados {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    font-size: 15px;
+    color: #4a5568;
+}
+
+.detalhe-grid-dados p {
+    margin: 0;
+}
+
+.detalhe-grid-dados strong,
+.mensagem-bloco-resumo strong {
+    color: #081f3f;
+}
+
+/* Exibição estilizada da mensagem no preview */
+.mensagem-bloco-resumo {
+    background: #f8fafc;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+}
+
+.texto-mensagem-preview {
+    margin: 8px 0 0 0;
+    font-style: italic;
+    color: #4a5568;
+    white-space: pre-wrap; /* Preserva as quebras de linha enviadas no formulário */
+    line-height: 1.6;
+}
+
+.acoes-resumo {
+    text-align: center;
+    margin-top: 35px;
+}
+
+.btn-finalizar-total {
+    background: #d8b16f;
+    color: #081f3f;
+    padding: 16px 50px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.btn-finalizar-total:hover {
+    background: #081f3f;
+    color: #ffffff;
+    box-shadow: 0 6px 20px rgba(8, 31, 63, 0.3);
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE
+   ========================================================================== */
+@media (max-width: 768px) {
+    .card {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+    
+    body {
+        padding: 15px;
+    }
+    
+    .acoes {
+        flex-direction: column;
+    }
+
+    button, .btn-finalizar-total {
+        width: 100%;
+    }
+
+    .detalhe-grid-dados {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==========================================================================
+   BOTAO DE TEMA E MODO ESCURO
+   ========================================================================== */
+.theme.theme-page-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    min-height: auto;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+.theme.theme-page-toggle:hover {
+    background: transparent;
+    box-shadow: none;
+    transform: none;
+}
+
+body.dark-mode {
+    background: #07111f;
+    color: #e8eef8;
+}
+
+body.dark-mode h1,
+body.dark-mode label,
+body.dark-mode #confirmacao h2,
+body.dark-mode .detalhe-grid-dados strong,
+body.dark-mode .mensagem-bloco-resumo strong,
+body.dark-mode .text-blue {
+    color: #f4f7fb;
+}
+
+body.dark-mode .card,
+body.dark-mode #confirmacao {
+    background: #0d1f38;
+    border-color: #17345d;
+    box-shadow: 0 12px 32px rgba(0,0,0,.35);
+}
+
+body.dark-mode .card h2 {
+    background: #031226;
+}
+
+body.dark-mode input,
+body.dark-mode textarea {
+    background: #071a35;
+    border-color: #17345d;
+    color: #e8eef8;
+}
+
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder {
+    color: #7f99b9;
+}
+
+body.dark-mode input:focus,
+body.dark-mode textarea:focus {
+    background: #0b2549;
+}
+
+body.dark-mode .detalhe-grid-dados,
+body.dark-mode .texto-mensagem-preview {
+    color: #b8c6d8;
+}
+
+body.dark-mode .mensagem-bloco-resumo {
+    background: #071a35;
+    border-color: #17345d;
+}
+
+body.dark-mode .produto-destaque,
+body.dark-mode .divisor-resumo {
+    border-color: #27456e;
+}

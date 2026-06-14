@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/layout.css">
+    <link rel="stylesheet" href="./CSS/temas/tema.css">
+    <link rel="stylesheet" href="./CSS/inicio.css">
+    <link rel="icon" href="./img/hardtech_logo_v1_2-Photoroom.png">
+    <title>HARDTECH</title>
+</head>
+<body>
+    <header>
+        <section class="logo-area">
+            <!-- Botão hambúrguer — visível apenas no mobile/tablet -->
+            <button class="hamburger" id="hamburger-btn" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <img src="./img/hardtech_logo_v1_2-Photoroom.png" alt="Logo HardTech">
+            <h1>HARDTECH</h1>
+        </section>
+        <form class="search-form" role="search">
+            <button type="button" class="icon" aria-label="Pesquisar" title="Pesquisar">
+                <svg width="25px" height="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11.5 21C16.7467 21 21 16.7467 21 11.5C21 6.25329 16.7467 2 11.5 2C6.25329 2 2 6.25329 2 11.5C2 16.7467 6.25329 21 11.5 21Z" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M22 22L20 20" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+            </button>
+            <input type="search" class="input" placeholder="Pesquisar...">
+        </form>
+    </header>
+
+    <!-- Overlay escuro que fecha o menu ao clicar fora -->
+    <div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
+
+    <main>
+        <nav id="main-nav" aria-label="Menu principal">
+            <ul>
+                <li><a href="index.html" class="menu-ativo">Início</a></li>
+                <li>
+                    <details>
+                        <summary>Produtos</summary>
+                        <ul>
+                            <li><a href="#">Processadores</a></li>
+                            <li><a href="#">Placas de Vídeo</a></li>
+                            <li><a href="#">Memórias RAM</a></li>
+                            <li><a href="#">SSD e HD</a></li>
+                            <li><a href="#">Placas-Mãe</a></li>
+                            <li><a href="#">Fontes</a></li>
+                        </ul>
+                    </details>
+                </li>
+                <li>
+                    <details>
+                        <summary>Promoções</summary>
+                        <ul>
+                            <li><a href="./paginas/promocoes.html?campanha=dia-dos-namorados">Dia dos Namorados ❤️</a></li>
+                            <li><a href="./paginas/promocoes.html?campanha=festa-junina-tech">Arraiá de Ofertas</a></li>
+                            <li><a href="./paginas/promocoes.html?campanha=semana-gamer">Semana Gamer</a></li>
+                            <li><a href="./paginas/promocoes.html?campanha=aquecimento-inverno">Aquecimento de Inverno</a></li>
+                        </ul>
+                    </details>
+                </li>
+                <li><a href="#">Monte seu PC</a></li>
+                <li><a href="./paginas/contatos.html">Contato</a></li>
+            </ul>
+
+            <button type="button" id="theme-toggle" class="theme" aria-label="Alternar modo escuro" aria-pressed="false">
+                <span class="theme__toggle-wrap">
+                    <span class="theme__fill" aria-hidden="true"></span>
+                    <span class="theme__icon" aria-hidden="true">
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                    </span>
+                </span>
+            </button>
+        </nav>
+
+        <section class="conteudo">
+
+            <article class="banner">
+                <h2>Monte seu PC dos Sonhos</h2>
+                <p>As melhores placas de vídeo, processadores e periféricos com ofertas exclusivas.</p>
+                <a href="#" class="btn-banner">Ver Promoções</a>
+            </article>
+
+            <article class="banner-promocional namorados">
+                <div class="promo-info">
+                    <span class="tag-promo">Campanha Especial</span>
+                    <h2>Dia dos Namorados Tech ❤️</h2>
+                    <p>O casal que joga junto, evolui junto. Ganhe até 20% de desconto em periféricos e setups duplos selecionados!</p>
+                    <a href="./paginas/promocoes.html?campanha=dia-dos-namorados" class="btn-promo-link">Confira as Ofertas de Amor</a>
+                </div>
+            </article>
+
+            <article class="destaques">
+                <h2>Produtos em Destaque</h2>
+
+                <section class="produtos">
+    <article class="produto">
+        <img src="./img/img-index/ssd1tb.webp" alt="SSD NVMe 1TB">
+        <section class="info-produto">
+            <h3>SSD NVMe 1TB</h3>
+            <p>Velocidade extrema de leitura de até 7000 MB/s.</p>
+            <span>R$ 499,90</span>
+            <a href="./paginas/produto.html?id=ssd1tb" class="btn-comprar">Ver Detalhes</a>
+        </section>
+    </article>
+
+    <article class="produto">
+        <img src="./img/img-index/placa_mae_b650.webp" alt="Placa-Mãe B650">
+        <section class="info-produto">
+            <h3>Placa-Mãe B650M Wi-Fi</h3>
+            <p>Pronta para processadores AMD AM5, DDR5 com dissipador reforçado.</p>
+            <span>R$ 1.149,00</span>
+            <a href="./paginas/produto.html?id=placamae" class="btn-comprar">Ver Detalhes</a>
+        </section>
+    </article>
+
+    <article class="produto">
+        <img src="./img/img-index/intel_i7.png" alt="Intel Core i7">
+        <section class="info-produto">
+            <h3>Intel Core i7-14700K</h3>
+            <p>Alta performance com 20 núcleos e clock dinâmico para multitarefas e streaming.</p>
+            <span>R$ 2.699,90</span>
+            <a href="./paginas/produto.html?id=i714700k" class="btn-comprar">Ver Detalhes</a>
+        </section>
+    </article>
+
+    <article class="produto">
+        <img src="./img/img-index/rx7800xt.png" alt="AMD Radeon RX 7800 XT">
+        <section class="info-produto">
+            <h3>Radeon RX 7800 XT 16GB</h3>
+            <p>Arquitetura RDNA 3 com 16GB de memória, ideal para rodar tudo no Ultra em 1440p.</p>
+            <span>R$ 3.499,00</span>
+            <a href="./paginas/produto.html?id=rx7800xt" class="btn-comprar">Ver Detalhes</a>
+        </section>
+    </article>
+
+    <article class="produto">
+        <img src="./img/img-index/aircooler_tower.webp" alt="Air Cooler Tower">
+        <section class="info-produto">
+            <h3>Air Cooler Dual Tower</h3>
+            <p>Refrigeração a ar de alto desempenho com dissipador duplo e ventoinhas silenciosas.</p>
+            <span>R$ 289,90</span>
+            <a href="./paginas/produto.html?id=aircooler" class="btn-comprar">Ver Detalhes</a>
+        </section>
+    </article>
+
+    <article class="produto">
+        <img src="./img/img-index/ram_16gb_single.webp" alt="Memória RAM 16GB">
+        <section class="info-produto">
+            <h3>Memória RAM 16GB DDR5 5600MHz</h3>
+            <p>Módulo individual de alta estabilidade para upgrades eficientes ou setups de entrada.</p>
+            <span>R$ 419,90</span>
+            <a href="./paginas/produto.html?id=ram16gb" class="btn-comprar">Ver Detalhes</a>
+        </section>
+    </article>
+</section>
+            </article>
+
+        </section>
+    </main>
+
+    <footer class="rodape-hardtech">
+        <section class="footer-container">
+
+            <section class="footer-coluna">
+                <h3>Departamentos</h3>
+                <ul>
+                    <li><a href="#">Hardware</a></li>
+                    <li><a href="#">Computadores</a></li>
+                    <li><a href="#">Monitores</a></li>
+                    <li><a href="#">Eletrônicos</a></li>
+                    <li><a href="#">Periféricos</a></li>
+                    <li><a href="#">Kit Upgrade</a></li>
+                </ul>
+            </section>
+
+            <section class="footer-coluna">
+                <h3>Institucional</h3>
+                <ul>
+                    <li><a href="#">Quem somos</a></li>
+                    <li><a href="#">Localização</a></li>
+                    <li><a href="#">Nossas Lojas</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </section>
+
+            <section class="footer-coluna">
+                <h3>Dúvidas / Ajuda</h3>
+                <ul>
+                    <li><a href="#">Entrega</a></li>
+                    <li><a href="#">Garantia</a></li>
+                    <li><a href="#">Como comprar</a></li>
+                    <li><a href="#">SAC / Fale Conosco</a></li>
+                    <li><a href="#">Políticas de Privacidade</a></li>
+                </ul>
+            </section>
+
+            <section class="footer-coluna">
+                <address class="redes-sociais-container">
+                    <h3>Siga-nos nas redes</h3>
+                    <section class="iconos-redes">
+                        <a href="https://www.facebook.com/hardtech22/" class="social-btn" title="Facebook">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/></svg>
+                        </a>
+                        <a href="https://www.instagram.com/hardtech_innovation/" class="social-btn" title="Instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                        </a>
+                        <a href="https://www.youtube.com/@HardTech_" class="social-btn" title="YouTube">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        </a>
+                        <a href="https://www.tiktok.com/@hardtech.sistemas" class="social-btn" title="TikTok">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31 0 2.586.342 3.71 1a7.434 7.434 0 012.33 2.308c.38.564.64 1.19.78 1.845a8.165 8.165 0 002.656-.474V8.16a5.074 5.074 0 01-3.415-.496 5.176 5.176 0 01-1.996-2.072v8.941a7.487 7.487 0 01-1.393 4.364 7.375 7.375 0 01-3.834 2.85 7.482 7.482 0 01-5.114-.306 7.377 7.377 0 01-3.725-3.327 7.493 7.493 0 01-.645-5.084 7.382 7.382 0 012.553-4.524 7.485 7.485 0 014.733-1.637c.39 0 .78.03 1.163.09v3.454a4.015 4.015 0 00-.734-.067 4.032 4.032 0 00-3.417 1.854A4.093 4.093 0 004.83 14.8c.118.96.58 1.842 1.303 2.483a4.04 4.04 0 002.736.938 4.097 4.097 0 003.774-2.734c.162-.486.243-.996.241-1.51V0h-3.46v.02h3.1z"/></svg>
+                        </a>
+                    </section>
+                </address>
+            </section>
+
+        </section>
+
+        <section class="footer-direitos">
+            <p>&copy; 2026 HARDTECH - Todos os direitos reservados. Desenvolvido para fins estudantis.</p>
+        </section>
+    </footer>
+
+    <script src="./javaScript/layout.js"></script>
+    <script src="./javaScript/script.js"></script>
+</body>
+</html>

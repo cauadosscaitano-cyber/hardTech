@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/layout.css">
+    <link rel="stylesheet" href="../CSS/namorados.css">
+    <link rel="stylesheet" href="../CSS/temas/tema.css">
+    <link rel="icon" href="../img/hardtech_logo_v1_2-Photoroom.png">
+    <title>HARDTECH</title>
+</head>
+<body>
+    <header>
+    <section class="logo-area">
+        <button class="hamburger" id="hamburger-btn" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <img src="../img/hardtech_logo_v1_2-Photoroom.png" alt="Logo HardTech">
+        <h1>HARDTECH</h1>
+    </section>
+    <form class="search-form" role="search">
+        <button type="button" class="icon" aria-label="Pesquisar" title="Pesquisar">
+            <svg width="25px" height="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11.5 21C16.7467 21 21 16.7467 21 11.5C21 6.25329 16.7467 2 11.5 2C6.25329 2 2 6.25329 2 11.5C2 16.7467 6.25329 21 11.5 21Z" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M22 22L20 20" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+        </button>
+        <input type="search" class="input" placeholder="Pesquisar...">
+    </form>
+</header>
+
+<div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
+
+<main class="conteudo-namorados">
+
+    <section class="banner-namorados">
+            <span class="tag-campcampaign">Campanha Especial</span>
+            <h2>Dia dos Namorados Tech ❤️</h2>
+            <p>Surpreenda quem te faz dar um 'upgrade' na vida. Os melhores setups, periféricos e hardwares com descontos apaixonantes e frete grátis.</p>
+    </section>
+
+    <nav id="main-nav" aria-label="Menu principal">
+        <ul>
+            <li><a href="../index.html">Início</a></li>
+            <li>
+                <details>
+                    <summary>Produtos</summary>
+                    <ul>
+                        <li><a href="#">Processadores</a></li>
+                        <li><a href="#">Placas de Vídeo</a></li>
+                        <li><a href="#">Memórias RAM</a></li>
+                        <li><a href="#">SSD e HD</a></li>
+                        <li><a href="#">Placas-Mãe</a></li>
+                        <li><a href="#">Fontes</a></li>
+                    </ul>
+                </details>
+            </li>
+            <li class="menu-ativo">
+                <details>
+                    <summary>Promoções</summary>
+                    <ul>
+                        <li><a href="promocoes.html?campanha=dia-dos-namorados">Dia dos Namorados ❤️</a></li>
+                        <li><a href="#">Arraiá de Ofertas</a></li>
+                        <li><a href="#">Semana Gamer</a></li>
+                        <li><a href="#">Aquecimento de Inverno</a></li>
+                    </ul>
+                </details>
+            </li>
+            <li><a href="#">Monte seu PC</a></li>
+            <li><a href="contatos.html">Contato</a></li>
+        </ul>
+
+        <button type="button" id="theme-toggle" class="theme" aria-label="Alternar modo escuro" aria-pressed="false">
+            <span class="theme__toggle-wrap">
+                <span class="theme__fill" aria-hidden="true"></span>
+                <span class="theme__icon" aria-hidden="true">
+                    <span class="theme__icon-part"></span>
+                    <span class="theme__icon-part"></span>
+                    <span class="theme__icon-part"></span>
+                    <span class="theme__icon-part"></span>
+                    <span class="theme__icon-part"></span>
+                    <span class="theme__icon-part"></span>
+                    <span class="theme__icon-part"></span>
+                    <span class="theme__icon-part"></span>
+                    <span class="theme__icon-part"></span>
+                </span>
+            </span>
+        </button>
+    </nav>
+
+    <section class="grid-produtos-namorados">
+            
+            <article class="card-produto-namorados">
+    <figure>
+        <img src="../img/img-promocoes/rtx5070.webp" alt="RTX 5070">
+    </figure>
+    <section class="info-produto">
+        <h3>Placa de Vídeo RTX 5070</h3>
+        <p>12GB GDDR7 - O amor na velocidade máxima dos quadros.</p>
+        <section class="bloco-preco-card">
+            <s class="preco-antigo">R$ 4.599,00</s>
+            <span class="preco-namorados">R$ 3.999,90</span>
+        </section>
+        <a href="../paginas/produto.html?id=rtx5070" class="btn-comprar">Ver Detalhes</a>
+    </section>
+</article>
+
+<article class="card-produto-namorados">
+    <figure>
+        <img src="../img/img-promocoes/ryzen7800x3d.webp" alt="Ryzen 7 7800X3D">
+    </figure>
+    <section class="info-produto">
+        <h3>Ryzen 7 7800X3D</h3>
+        <p>O processador líder em games e no coração do seu amor.</p>
+        <section class="bloco-preco-card">
+            <s class="preco-antigo">R$ 2.999,00</s>
+            <span class="preco-namorados">R$ 2.499,90</span>
+        </section>
+        <a href="../paginas/produto.html?id=ryzen7" class="btn-comprar">Ver Detalhes</a>
+    </section>
+</article>
+
+<article class="card-produto-namorados">
+    <figure>
+        <img src="../img/img-promocoes/TecladoRGB.webp" alt="Teclado Mecânico RGB">
+    </figure>
+    <section class="info-produto">
+        <h3>Teclado Mecânico RGB</h3>
+        <p>Switches silenciosos e iluminação personalizável.</p>
+        <section class="bloco-preco-card">
+            <s class="preco-antigo">R$ 459,00</s>
+            <span class="preco-namorados">R$ 349,90</span>
+        </section>
+        <a href="../paginas/produto.html?id=teclado" class="btn-comprar">Ver Detalhes</a>
+    </section>
+</article>
+
+<article class="card-produto-namorados">
+    <figure>
+        <img src="../img/img-promocoes/MouseWireless.webp" alt="Mouse Gamer Wireless">
+    </figure>
+    <section class="info-produto">
+        <h3>Mouse Gamer Wireless</h3>
+        <p>Precisão cirúrgica para jogar em dupla sem atrasos.</p>
+        <section class="bloco-preco-card">
+            <s class="preco-antigo">R$ 399,00</s>
+            <span class="preco-namorados">R$ 299,90</span>
+        </section>
+        <a href="../paginas/produto.html?id=mouse" class="btn-comprar">Ver Detalhes</a>
+    </section>
+</article>
+
+<article class="card-produto-namorados">
+    <figure>
+        <img src="../img/img-promocoes/HeadsetWireless.webp" alt="Headset Spatial Audio">
+    </figure>
+    <section class="info-produto">
+        <h3>Headset Gamer 7.1 Wireless</h3>
+        <p>Para ouvir a voz do seu amor (e os passos dos inimigos).</p>
+        <section class="bloco-preco-card">
+            <s class="preco-antigo">R$ 750,00</s>
+            <span class="preco-namorados">R$ 599,90</span>
+        </section>
+        <a href="../paginas/produto.html?id=headset" class="btn-comprar">Ver Detalhes</a>
+    </section>
+</article>
+
+<article class="card-produto-namorados">
+    <figure>
+        <img src="../img/img-promocoes/SSD2TB.png" alt="SSD NVMe 2TB">
+    </figure>
+    <section class="info-produto">
+        <h3>SSD NVMe M.2 2TB</h3>
+        <p>Espaço de sobra para guardar memórias e jogos pesados.</p>
+        <section class="bloco-preco-card">
+            <s class="preco-antigo">R$ 999,00</s>
+            <span class="preco-namorados">R$ 799,90</span>
+        </section>
+        <a href="../paginas/produto.html?id=ssd2tb" class="btn-comprar">Ver Detalhes</a>
+    </section>
+</article>
+
+<article class="card-produto-namorados">
+    <figure>
+        <img src="../img/img-promocoes/MonitorCurvo.png" alt="Monitor Curvo 144Hz">
+    </figure>
+    <section class="info-produto">
+        <h3>Monitor Curvo 27" 144Hz</h3>
+        <p>Imersão total e cores vibrantes para o setup do casal.</p>
+        <section class="bloco-preco-card">
+            <s class="preco-antigo">R$ 1.699,00</s>
+            <span class="preco-namorados">R$ 1.299,00</span>
+        </section>
+        <a href="../paginas/produto.html?id=monitor" class="btn-comprar">Ver Detalhes</a>
+    </section>
+</article>
+
+<article class="card-produto-namorados">
+    <figure>
+        <img src="../img/img-promocoes/WaterCooler.png" alt="Water Cooler RGB">
+    </figure>
+    <section class="info-produto">
+        <h3>Water Cooler 240mm RGB</h3>
+        <p>Para resfriar o PC quando a gameplay esquentar.</p>
+        <section class="bloco-preco-card">
+            <s class="preco-antigo">R$ 599,00</s>
+            <span class="preco-namorados">R$ 449,90</span>
+        </section>
+        <a href="../paginas/produto.html?id=watercooler" class="btn-comprar">Ver Detalhes</a>
+    </section>
+</article>
+
+<article class="card-produto-namorados">
+    <figure>
+        <img src="../img/img-promocoes/CadeiraGamer.webp" alt="Cadeira Gamer Ergonomica">
+    </figure>
+    <section class="info-produto">
+        <h3>Cadeira Gamer Premium</h3>
+        <p>Conforto absoluto para maratonas de séries ou jogos.</p>
+        <section class="bloco-preco-card">
+            <s class="preco-antigo">R$ 1.499,00</s>
+            <span class="preco-namorados">R$ 1.199,00</span>
+        </section>
+        <a href="../paginas/produto.html?id=cadeira" class="btn-comprar">Ver Detalhes</a>
+    </section>
+</article>
+
+<article class="card-produto-namorados">
+    <figure>
+        <img src="../img/img-promocoes/ram_32gb_ddr5.png" alt="Kit Memória 32GB">
+    </figure>
+    <section class="info-produto">
+        <h3>Kit RAM 32GB (2x16GB) DDR5</h3>
+        <p>Velocidade extrema para processar esse sentimento.</p>
+        <section class="bloco-preco-card">
+            <s class="preco-antigo">R$ 1.100,00</s>
+            <span class="preco-namorados">R$ 899,90</span>
+        </section>
+        <a href="../paginas/produto.html?id=ram32gb" class="btn-comprar">Ver Detalhes</a>
+    </section>
+</article>
+
+<article class="card-produto-namorados">
+    <figure>
+        <img src="../img/img-promocoes/Fonte_750w.webp" alt="Fonte 850W Gold">
+    </figure>
+    <section class="info-produto">
+        <h3>Fonte 750W 80 Plus Gold</h3>
+        <p>Energia estável e de alta eficiência para todo o setup.</p>
+        <section class="bloco-preco-card">
+            <s class="preco-antigo">R$ 929,00</s>
+            <span class="preco-namorados">R$ 749,90</span>
+        </section>
+        <a href="../paginas/produto.html?id=fonte750w" class="btn-comprar">Ver Detalhes</a>
+    </section>
+</article>
+
+<article class="card-produto-namorados">
+    <figure>
+        <img src="../img/img-promocoes/GabineteAquario.png" alt="Gabinete Aquário">
+    </figure>
+    <section class="info-produto">
+        <h3>Gabinete Aquário Luxury</h3>
+        <p>Vidro temperado lateral para exibir a beleza do hardware.</p>
+        <section class="bloco-preco-card">
+            <s class="preco-antigo">R$ 549,00</s>
+            <span class="preco-namorados">R$ 399,90</span>
+        </section>
+        <a href="../paginas/produto.html?id=gabinete" class="btn-comprar">Ver Detalhes</a>
+    </section>
+</article>
+        </section>
+    </main>
+    <footer class="rodape-hardtech">
+        <section class="footer-container">
+            
+            <section class="footer-coluna">
+                <h3>Departamentos</h3>
+                <ul>
+                    <li><a href="#">Hardware</a></li>
+                    <li><a href="#">Computadores</a></li>
+                    <li><a href="#">Monitores</a></li>
+                    <li><a href="#">Eletrônicos</a></li>
+                    <li><a href="#">Periféricos</a></li>
+                    <li><a href="#">Kit Upgrade</a></li>
+                </ul>
+            </section>
+
+            <section class="footer-coluna">
+                <h3>Institucional</h3>
+                <ul>
+                    <li><a href="#">Quem somos</a></li>
+                    <li><a href="#">Localização</a></li>
+                    <li><a href="#">Nossas Lojas</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </section>
+
+            <section class="footer-coluna">
+                <h3>Dúvidas / Ajuda</h3>
+                <ul>
+                    <li><a href="#">Entrega</a></li>
+                    <li><a href="#">Garantia</a></li>
+                    <li><a href="#">Como comprar</a></li>
+                    <li><a href="#">SAC / Fale Conosco</a></li>
+                    <li><a href="#">Políticas de Privacidade</a></li>
+                </ul>
+            </section>
+
+            <section class="footer-coluna">
+                <address class="redes-sociais-container">
+                    <h3>Siga-nos nas redes</h3>
+                    <section class="iconos-redes">
+                        <a href="https://www.facebook.com/hardtech22/" class="social-btn" title="Facebook">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/></svg>
+                        </a>
+                        <a href="https://www.instagram.com/hardtech_innovation/" class="social-btn" title="Instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                        </a>
+                        <a href="https://www.youtube.com/@HardTech_" class="social-btn" title="YouTube">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        </a>
+                        <a href="https://www.tiktok.com/@hardtech.sistemas" class="social-btn" title="TikTok">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31 0 2.586.342 3.71 1a7.434 7.434 0 012.33 2.308c.38.564.64 1.19.78 1.845a8.165 8.165 0 002.656-.474V8.16a5.074 5.074 0 01-3.415-.496 5.176 5.176 0 01-1.996-2.072v8.941a7.487 7.487 0 01-1.393 4.364 7.375 7.375 0 01-3.834 2.85 7.482 7.482 0 01-5.114-.306 7.377 7.377 0 01-3.725-3.327 7.493 7.493 0 01-.645-5.084 7.382 7.382 0 012.553-4.524 7.485 7.485 0 014.733-1.637c.39 0 .78.03 1.163.09v3.454a4.015 4.015 0 00-.734-.067 4.032 4.032 0 00-3.417 1.854A4.093 4.093 0 004.83 14.8c.118.96.58 1.842 1.303 2.483a4.04 4.04 0 002.736.938 4.097 4.097 0 003.774-2.734c.162-.486.243-.996.241-1.51V0h-3.46v.02h3.1z"/></svg>
+                        </a>
+                    </section>
+                </address>
+            </section>
+
+        </section>
+
+        <section class="footer-direitos">
+            <p>&copy; 2026 HARDTECH - Todos os direitos reservados. Desenvolvido para fins estudantis.</p>
+        </section>
+    </footer>
+    <script src="../javaScript/layout.js"></script>
+    <script src="../javaScript/script.js"></script>
+</body>
+</html>

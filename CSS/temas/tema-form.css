@@ -1,0 +1,52 @@
+/* ==========================================================================
+   MODO ESCURO
+   ========================================================================== */
+body.dark-mode {
+    background: #07111f;
+    color: #e8eef8;
+}
+
+body.dark-mode h1,
+body.dark-mode label,
+body.dark-mode #confirmacao h2,
+body.dark-mode .detalhe-grid-dados strong,
+body.dark-mode .text-blue {
+    color: #f4f7fb;
+}
+
+body.dark-mode .card,
+body.dark-mode #confirmacao {
+    background: #0d1f38;
+    border-color: #17345d;
+    box-shadow: 0 12px 32px rgba(0,0,0,.35);
+}
+
+body.dark-mode .card h2 {
+    background: #031226;
+}
+
+body.dark-mode input,
+body.dark-mode select {
+    background: #071a35;
+    border-color: #17345d;
+    color: #e8eef8;
+}
+
+body.dark-mode input:focus,
+body.dark-mode select:focus {
+    background: #0b2549;
+}
+
+body.dark-mode .resumo-imagem-box {
+    background: #071a35;
+    border-color: #17345d;
+}
+
+body.dark-mode .detalhe-grid-dados {
+    color: #b8c6d8;
+}
+
+body.dark-mode .produto-destaque,
+body.dark-mode .divisor-resumo {
+    border-color: #27456e;
+}

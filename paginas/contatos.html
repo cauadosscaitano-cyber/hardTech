@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/layout.css">
+    <link rel="stylesheet" href="../CSS/contatos.css">
+    <link rel="stylesheet" href="../CSS/temas/tema-form.css">
+    <link rel="icon" href="../img/hardtech_logo_v1_2-Photoroom.png">
+    <title>HARDTECH</title>
+</head>
+<body>
+    <form id="formContato">
+        <h1>Fale Conosco</h1>
+
+        <section class="card">
+            <h2>Formulário de Mensagem</h2>
+
+            <label>
+                Nome Completo
+                <input type="text" id="nome" required placeholder="Digite seu nome completo">
+            </label>
+
+            <label>
+                E-mail
+                <input type="email" id="email" required placeholder="seuemail@exemplo.com">
+            </label>
+
+            <label>
+                Data de Nascimento
+                <input type="date" id="dataNascimento" required>
+            </label>
+
+            <label class="full-width">
+                Sua Mensagem
+                <textarea id="mensagem" rows="5" required placeholder="Como podemos ajudar você? Escreva aqui sua dúvida ou sugestão..."></textarea>
+            </label>
+        </section>
+
+        <section class="acoes">
+            <button type="submit">Visualizar Mensagem</button>
+            <button type="reset" class="btn-limpar">Limpar</button>
+        </section>
+    </form>
+
+    <section id="confirmacao" class="card-resumo">
+        <h2>Resumo do seu Contato</h2>
+        
+        <article class="resumo-container contato-resumo-ajuste">
+            <section class="resumo-dados">
+                
+                <header class="detalhe-item produto-destaque">
+                    <span class="label-detalhe">Status do Envio:</span>
+                    <strong class="valor-detalhe text-blue">Pronto para Enviar</strong>
+                </header>
+
+                <section class="detalhe-grid-dados">
+                    <p><strong>Nome:</strong> <span id="resNome">-</span></p>
+                    <p><strong>E-mail:</strong> <span id="resEmail">-</span></p>
+                    <p><strong>Data de Nasc.:</strong> <span id="resDataNasc">-</span></p>
+                </section>
+
+                <hr class="divisor-resumo">
+
+                <section class="mensagem-bloco-resumo">
+                    <strong>Mensagem:</strong>
+                    <p id="resMensagem" class="texto-mensagem-preview">-</p>
+                </section>
+            </section>
+        </article>
+
+        <footer class="acoes-resumo">
+            <button type="button" onclick="enviarContato()" class="btn-finalizar-total">Enviar Mensagem Agora</button>
+        </footer>
+    </section>
+
+    <script src="../javaScript/layout.js"></script>
+    <script src="../javaScript/script.js"></script>
+</body>
+</html>
