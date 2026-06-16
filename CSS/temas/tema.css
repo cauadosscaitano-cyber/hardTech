@@ -1,7 +1,6 @@
-
-/* ============================================================
-   MODO ESCURO - TOGGLE BUTTON
-   ============================================================ */
+/* ==========================================================================
+   TOGGLE DE TEMA — BASE (dentro do nav lateral)
+   ========================================================================== */
 .theme {
     display: flex;
     flex: 1;
@@ -16,6 +15,23 @@
     margin-top: auto;
 }
 
+/* ==========================================================================
+   TOGGLE DE TEMA — FLUTUANTE (páginas sem nav: pagamento, contato)
+   ========================================================================== */
+.theme.theme-flutuante {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    flex: none;
+    width: auto;
+    min-height: auto;
+    margin-top: 0;
+}
+
+/* ==========================================================================
+   ESTRUTURA INTERNA DO TOGGLE (compartilhada por ambos)
+   ========================================================================== */
 .theme__toggle-wrap {
     display: block;
     position: relative;
@@ -80,22 +96,27 @@
 
 .theme__icon::after { content: ""; display: none; }
 
+/* Estado ativo (modo escuro ligado) */
 .theme[aria-pressed="true"] .theme__toggle-wrap {
     background-color: hsl(198,90%,15%);
 }
+
 .theme[aria-pressed="true"] .theme__toggle-wrap::before,
 .theme[aria-pressed="true"] .theme__icon {
     transform: translateX(53px);
 }
+
 .theme[aria-pressed="true"] .theme__toggle-wrap::before {
     background-color: hsl(198,90%,55%);
 }
+
 .theme[aria-pressed="true"] .theme__icon::before {
     width: 18px;
     height: 18px;
     background: #ffffff;
     box-shadow: none;
 }
+
 .theme[aria-pressed="true"] .theme__icon::after {
     display: block;
     position: absolute;
@@ -105,19 +126,23 @@
     background: hsl(198,90%,55%);
     transform: translate(7px, -2px);
 }
+
 .theme:focus-visible {
     outline: 2px solid #d8b16f;
     outline-offset: -10px;
 }
 
-/* ============================================================
-   MODO ESCURO
-   ============================================================ */
+/* ==========================================================================
+   MODO ESCURO — UNIFICADO (index, produtos, promocoes, pagamento, contato)
+   ========================================================================== */
 body.dark-mode {
-    background: #020b18;
+    background: #07111f;
     color: #e8eef8;
 }
 
+/* ==========================================================================
+   HEADER E NAV
+   ========================================================================== */
 body.dark-mode header,
 body.dark-mode nav {
     background: #031226;
@@ -133,20 +158,19 @@ body.dark-mode .menu-ativo {
     background: #0b2a55;
 }
 
+/* ==========================================================================
+   CONTEÚDO PRINCIPAL (todas as variantes)
+   ========================================================================== */
 body.dark-mode .conteudo,
 body.dark-mode .conteudo-produto,
-body.dark-mode .conteudo-namorados {
+body.dark-mode .conteudo-namorados,
+body.dark-mode .conteudo-pagina {
     background: #07111f;
 }
 
-body.dark-mode .destaques h2,
-body.dark-mode .produto h3,
-body.dark-mode .card-produto-namorados h3,
-body.dark-mode .produto-info-lateral h2,
-body.dark-mode .produto-ficha-tecnica h3 {
-    color: #f4f7fb;
-}
-
+/* ==========================================================================
+   CARDS E PRODUTOS (index, produto-detalhe, promocoes)
+   ========================================================================== */
 body.dark-mode .produto,
 body.dark-mode .produto-detalhe-wrapper,
 body.dark-mode .produto-ficha-tecnica,
@@ -156,6 +180,20 @@ body.dark-mode .card-produto-namorados {
     box-shadow: 0 4px 16px rgba(0,0,0,.35);
 }
 
+/* ==========================================================================
+   TIPOGRAFIA — TÍTULOS (index, produto-detalhe, promocoes)
+   ========================================================================== */
+body.dark-mode .destaques h2,
+body.dark-mode .produto h3,
+body.dark-mode .card-produto-namorados h3,
+body.dark-mode .produto-info-lateral h2,
+body.dark-mode .produto-ficha-tecnica h3 {
+    color: #f4f7fb;
+}
+
+/* ==========================================================================
+   TIPOGRAFIA — PARÁGRAFOS E LISTAS (index, produto-detalhe, promocoes)
+   ========================================================================== */
 body.dark-mode .produto p,
 body.dark-mode .produto-info-lateral p,
 body.dark-mode .produto-ficha-tecnica li,
@@ -163,6 +201,9 @@ body.dark-mode .card-produto-namorados p {
     color: #b8c6d8;
 }
 
+/* ==========================================================================
+   BOTÕES DE COMPRA (index, produto-detalhe, promocoes)
+   ========================================================================== */
 body.dark-mode .produto a.btn-comprar,
 body.dark-mode .card-produto-namorados a.btn-comprar,
 body.dark-mode .btn-comprar-interno {
@@ -176,6 +217,76 @@ body.dark-mode .btn-comprar-interno:hover {
     background: #f0c87c;
 }
 
+/* ==========================================================================
+   FORMULÁRIOS — CARDS (pagamento, contato)
+   ========================================================================== */
+body.dark-mode .card,
+body.dark-mode #confirmacao {
+    background: #0d1f38;
+    border-color: #17345d;
+    box-shadow: 0 12px 32px rgba(0,0,0,.35);
+}
+
+body.dark-mode .card h2 {
+    background: #031226;
+}
+
+/* ==========================================================================
+   FORMULÁRIOS — TIPOGRAFIA (pagamento, contato)
+   ========================================================================== */
+body.dark-mode h1,
+body.dark-mode label,
+body.dark-mode #confirmacao h2,
+body.dark-mode .detalhe-grid-dados strong,
+body.dark-mode .mensagem-bloco-resumo strong,
+body.dark-mode .text-blue {
+    color: #f4f7fb;
+}
+
+body.dark-mode .detalhe-grid-dados,
+body.dark-mode .texto-mensagem-preview {
+    color: #b8c6d8;
+}
+
+/* ==========================================================================
+   FORMULÁRIOS — INPUTS, SELECTS, TEXTAREAS (pagamento, contato)
+   ========================================================================== */
+body.dark-mode input,
+body.dark-mode select,
+body.dark-mode textarea {
+    background: #071a35;
+    border-color: #17345d;
+    color: #e8eef8;
+}
+
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder {
+    color: #7f99b9;
+}
+
+body.dark-mode input:focus,
+body.dark-mode select:focus,
+body.dark-mode textarea:focus {
+    background: #0b2549;
+}
+
+/* ==========================================================================
+   CONFIRMAÇÃO / RESUMO (pagamento, contato)
+   ========================================================================== */
+body.dark-mode .resumo-imagem-box,
+body.dark-mode .mensagem-bloco-resumo {
+    background: #071a35;
+    border-color: #17345d;
+}
+
+body.dark-mode .produto-destaque,
+body.dark-mode .divisor-resumo {
+    border-color: #27456e;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
 body.dark-mode .rodape-hardtech {
     background: #020b18;
     border-top-color: #d8b16f;

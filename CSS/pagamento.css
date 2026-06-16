@@ -1,19 +1,28 @@
 /* ==========================================================================
-   TELA DE PAGAMENTO - HARDTECH THEME
+   FORMULÁRIOS UNIFICADOS — HARDTECH (pagamento.html + contatos.html)
+   Ordem: CSS segue a estrutura do HTML (form > h1 > .card > .acoes > #confirmacao)
    ========================================================================== */
-body {
-    background: #f4f6f9;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+/* ==========================================================================
+   1. CONTAINER DO FORMULÁRIO
+   ========================================================================== */
+#formPagamento,
+#formContato {
+    max-width: 900px;
+    margin: 40px auto;
     padding: 16px;
-    color: #333333;
 }
 
 @media (min-width: 768px) {
-    body {
-        padding: 30px;
+    #formPagamento,
+    #formContato {
+        padding: 0;
     }
 }
 
+/* ==========================================================================
+   2. TÍTULO PRINCIPAL (h1)
+   ========================================================================== */
 h1 {
     text-align: center;
     color: #081f3f;
@@ -22,18 +31,20 @@ h1 {
     text-transform: uppercase;
     letter-spacing: 1px;
     font-size: 22px;
-    margin-top: 50px; /* espaço para não colidir com o toggle de tema fixo */
+    margin-top: 70px; /* espaço para o toggle de tema flutuante + header */
 }
 
 @media (min-width: 768px) {
     h1 {
         font-size: 28px;
         margin-bottom: 30px;
-        margin-top: 0;
+        margin-top: 20px;
     }
 }
 
-/* Cards do Formulário */
+/* ==========================================================================
+   3. CARDS DO FORMULÁRIO (.card)
+   ========================================================================== */
 .card {
     background: white;
     padding: 16px;
@@ -44,7 +55,6 @@ h1 {
     box-shadow: 0 8px 24px rgba(8, 31, 63, 0.05);
     border: 1px solid #e2e8f0;
     box-sizing: border-box;
-
     display: grid;
     grid-template-columns: 1fr;
     gap: 14px;
@@ -59,7 +69,9 @@ h1 {
     }
 }
 
-/* Cabeçalhos internos dos Cards */
+/* ==========================================================================
+   4. CABEÇALHOS INTERNOS DOS CARDS (.card h2)
+   ========================================================================== */
 .card h2 {
     grid-column: 1 / -1;
     background: #081f3f;
@@ -81,7 +93,9 @@ h1 {
     }
 }
 
-/* Labels e Inputs */
+/* ==========================================================================
+   5. LABELS
+   ========================================================================== */
 label {
     display: flex;
     flex-direction: column;
@@ -98,8 +112,19 @@ label {
     }
 }
 
+/* ==========================================================================
+   6. CLASSE UTILITÁRIA — CAMPO DE LARGURA TOTAL
+   ========================================================================== */
+.full-width {
+    grid-column: 1 / -1;
+}
+
+/* ==========================================================================
+   7. INPUTS, SELECTS E TEXTAREAS
+   ========================================================================== */
 input,
-select {
+select,
+textarea {
     padding: 10px 14px;
     border: 2px solid #e2e8f0;
     border-radius: 8px;
@@ -110,26 +135,36 @@ select {
     outline: none;
     width: 100%;
     box-sizing: border-box;
+    font-family: inherit;
 }
 
 @media (min-width: 768px) {
     input,
-    select {
+    select,
+    textarea {
         padding: 12px 16px;
         font-size: 15px;
     }
 }
 
+textarea {
+    resize: vertical;
+}
+
 input:focus,
-select:focus {
+select:focus,
+textarea:focus {
     border-color: #d8b16f;
     background-color: #ffffff;
     box-shadow: 0 0 0 3px rgba(216, 177, 111, 0.2);
 }
 
-/* Área do Botão Principal do Formulário */
+/* ==========================================================================
+   8. ÁREA DE BOTÕES DO FORMULÁRIO (.acoes)
+   ========================================================================== */
 .acoes {
     display: flex;
+    justify-content: center;
     gap: 10px;
     margin-top: 20px;
 }
@@ -138,11 +173,18 @@ select:focus {
     .acoes {
         gap: 16px;
         margin-top: 30px;
-        justify-content: center;
     }
 }
 
-/* Botões */
+@media (max-width: 767px) {
+    .acoes {
+        flex-direction: column;
+    }
+}
+
+/* ==========================================================================
+   9. BOTÕES (button)
+   ========================================================================== */
 button {
     padding: 12px 16px;
     border: none;
@@ -168,6 +210,12 @@ button {
     }
 }
 
+@media (max-width: 767px) {
+    button {
+        width: 100%;
+    }
+}
+
 button:hover {
     background: #d8b16f;
     color: #081f3f;
@@ -180,7 +228,23 @@ button:active {
 }
 
 /* ==========================================================================
-   CARD DE CONFIRMAÇÃO / RESUMO DA COMPRA
+   10. BOTÃO DE LIMPAR (.btn-limpar)
+   ========================================================================== */
+.btn-limpar {
+    background: #e2e8f0;
+    color: #4a5568;
+    box-shadow: none;
+}
+
+.btn-limpar:hover {
+    background: #cbd5e1;
+    color: #333333;
+    box-shadow: none;
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   11. SEÇÃO DE CONFIRMAÇÃO / RESUMO (#confirmacao)
    ========================================================================== */
 #confirmacao {
     display: none;
@@ -201,6 +265,9 @@ button:active {
     }
 }
 
+/* ==========================================================================
+   12. TÍTULO DA CONFIRMAÇÃO (#confirmacao h2)
+   ========================================================================== */
 #confirmacao h2 {
     text-align: center;
     color: #081f3f;
@@ -217,7 +284,9 @@ button:active {
     }
 }
 
-/* Organização do Resumo — Mobile: 1 coluna */
+/* ==========================================================================
+   13. CONTAINER DO RESUMO (.resumo-container)
+   ========================================================================== */
 .resumo-container {
     display: grid;
     grid-template-columns: 1fr;
@@ -232,7 +301,9 @@ button:active {
     }
 }
 
-/* Bloco que envolve a imagem do produto */
+/* ==========================================================================
+   15. IMAGEM DO RESUMO (.resumo-imagem-box)
+   ========================================================================== */
 .resumo-imagem-box {
     background: #f8fafc;
     border: 1px solid #e2e8f0;
@@ -252,19 +323,27 @@ button:active {
     }
 }
 
+/* ==========================================================================
+   16. IMAGEM DENTRO DO RESUMO (.img-produto-resumo)
+   ========================================================================== */
 .img-produto-resumo {
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
 }
 
-/* Alinhamento dos textos internos do resumo */
+/* ==========================================================================
+   17. DADOS DO RESUMO (.resumo-dados)
+   ========================================================================== */
 .resumo-dados {
     display: flex;
     flex-direction: column;
     gap: 12px;
 }
 
+/* ==========================================================================
+   18. ITEM DE DETALHE (.detalhe-item)
+   ========================================================================== */
 .detalhe-item {
     display: flex;
     justify-content: space-between;
@@ -279,6 +358,9 @@ button:active {
     }
 }
 
+/* ==========================================================================
+   19. PRODUTO EM DESTAQUE NO RESUMO (.produto-destaque)
+   ========================================================================== */
 .produto-destaque {
     font-size: 15px;
     border-bottom: 1px dashed #e2e8f0;
@@ -291,6 +373,9 @@ button:active {
     }
 }
 
+/* ==========================================================================
+   20. PREÇO EM DESTAQUE NO RESUMO (.preco-destaque-box)
+   ========================================================================== */
 .preco-destaque-box {
     font-size: 18px;
     margin-top: 4px;
@@ -302,16 +387,24 @@ button:active {
     }
 }
 
+/* ==========================================================================
+   21. UTILITÁRIOS DE COR
+   ========================================================================== */
 .text-blue { color: #081f3f; }
 .text-gold { color: #d8b16f; font-weight: 700; }
 
+/* ==========================================================================
+   22. DIVISOR DO RESUMO (.divisor-resumo)
+   ========================================================================== */
 .divisor-resumo {
     border: 0;
     border-top: 1px solid #e2e8f0;
     margin: 10px 0;
 }
 
-/* Grid do resumo do cliente — Mobile: 1 coluna */
+/* ==========================================================================
+   23. GRID DE DADOS DO CLIENTE (.detalhe-grid-dados)
+   ========================================================================== */
 .detalhe-grid-dados {
     display: grid;
     grid-template-columns: 1fr;
@@ -329,6 +422,12 @@ button:active {
     }
 }
 
+@media (max-width: 767px) {
+    .detalhe-grid-dados {
+        grid-template-columns: 1fr;
+    }
+}
+
 .detalhe-grid-dados p {
     margin: 0;
     line-height: 1.5;
@@ -338,7 +437,34 @@ button:active {
     color: #081f3f;
 }
 
-/* Botão finalizador */
+/* ==========================================================================
+   24. BLOCO DE MENSAGEM (.mensagem-bloco-resumo)
+   ========================================================================== */
+.mensagem-bloco-resumo {
+    background: #f8fafc;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+}
+
+.mensagem-bloco-resumo strong {
+    color: #081f3f;
+}
+
+/* ==========================================================================
+   25. TEXTO DA MENSAGEM NO PREVIEW (.texto-mensagem-preview)
+   ========================================================================== */
+.texto-mensagem-preview {
+    margin: 8px 0 0 0;
+    font-style: italic;
+    color: #4a5568;
+    white-space: pre-wrap;
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   26. ÁREA DE BOTÕES DO RESUMO (.acoes-resumo)
+   ========================================================================== */
 .acoes-resumo {
     text-align: center;
     margin-top: 24px;
@@ -350,6 +476,9 @@ button:active {
     }
 }
 
+/* ==========================================================================
+   27. BOTÃO FINALIZADOR DO RESUMO (.btn-finalizar-total)
+   ========================================================================== */
 .btn-finalizar-total {
     background: #d8b16f;
     color: #081f3f;
@@ -362,6 +491,12 @@ button:active {
     .btn-finalizar-total {
         padding: 16px 50px;
         font-size: 18px;
+    }
+}
+
+@media (max-width: 767px) {
+    .btn-finalizar-total {
+        width: 100%;
     }
 }
 

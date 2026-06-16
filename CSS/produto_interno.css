@@ -1,36 +1,11 @@
 /* ==========================================================================
-   ESTRUTURA PRINCIPAL — Mobile primeiro
+   PRODUTO INTERNO — HARDTECH
+   Ordem: CSS segue a estrutura do HTML gerado dinamicamente
    ========================================================================== */
 
-.conteudo-produto {
-    margin-left: 0;
-    margin-top: 70px;
-    padding: 16px;
-    box-sizing: border-box;
-    background: #f2f5fa;
-    min-height: calc(100vh - 70px);
-}
-
-@media (min-width: 768px) {
-    .conteudo-produto {
-        margin-top: 90px;
-        padding: 20px;
-        min-height: calc(100vh - 90px);
-    }
-}
-
-@media (min-width: 992px) {
-    .conteudo-produto {
-        margin-left: 250px;
-        padding: 30px;
-    }
-}
-
-.produto-detalhe-wrapper figure {
-    margin: 0;
-}
-
-/* Card Principal do Produto — Mobile: 1 coluna */
+/* ==========================================================================
+   1. CARD PRINCIPAL DO PRODUTO (.produto-detalhe-wrapper)
+   ========================================================================== */
 .produto-detalhe-wrapper {
     display: grid;
     grid-template-columns: 1fr;
@@ -60,7 +35,9 @@
     }
 }
 
-/* Caixa da imagem */
+/* ==========================================================================
+   3. CAIXA DA IMAGEM (.produto-imagem-lateral)
+   ========================================================================== */
 .produto-imagem-lateral {
     background: #ffffff;
     border: 1px solid #e2e8f0;
@@ -87,6 +64,9 @@
     }
 }
 
+/* ==========================================================================
+   4. IMAGEM DENTRO DA CAIXA (.produto-imagem-lateral img)
+   ========================================================================== */
 .produto-imagem-lateral img {
     max-width: 100%;
     max-height: 220px;
@@ -106,12 +86,18 @@
     }
 }
 
+/* ==========================================================================
+   5. INFORMAÇÕES DO PRODUTO (.produto-info-lateral)
+   ========================================================================== */
 .produto-info-lateral {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
+/* ==========================================================================
+   6. TÍTULO DO PRODUTO (.produto-info-lateral h2)
+   ========================================================================== */
 .produto-info-lateral h2 {
     color: #081f3f;
     font-size: 22px;
@@ -133,6 +119,9 @@
     }
 }
 
+/* ==========================================================================
+   7. DESCRIÇÃO DO PRODUTO (.descricao-interna)
+   ========================================================================== */
 .descricao-interna {
     font-size: 14px;
     color: #666;
@@ -147,7 +136,9 @@
     }
 }
 
-/* Bloco de Preço Premium */
+/* ==========================================================================
+   8. BLOCO DE PREÇO (.preco-container-interno)
+   ========================================================================== */
 .preco-container-interno {
     background: #f8fafc;
     border-left: 4px solid #d8b16f;
@@ -166,6 +157,9 @@
     }
 }
 
+/* ==========================================================================
+   9. LABEL DO PREÇO (.label-preco)
+   ========================================================================== */
 .label-preco {
     font-size: 13px;
     color: #718096;
@@ -178,6 +172,9 @@
     }
 }
 
+/* ==========================================================================
+   10. VALOR DO PREÇO (.preco-valor-interno)
+   ========================================================================== */
 .preco-valor-interno {
     font-size: 28px;
     color: #d8b16f;
@@ -192,6 +189,9 @@
     }
 }
 
+/* ==========================================================================
+   11. SUB-PREÇO (.sub-preco)
+   ========================================================================== */
 .sub-preco {
     font-size: 13px;
     color: #666;
@@ -203,7 +203,47 @@
     }
 }
 
-/* Botão de Compra */
+/* ==========================================================================
+   12. BOTÃO ADICIONAR AO CARRINHO (.btn-adicionar-carrinho)
+   ========================================================================== */
+.btn-adicionar-carrinho {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: #d8b16f;
+    color: #081f3f;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: .3s;
+    margin-bottom: 12px;
+    box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+    .btn-adicionar-carrinho {
+        padding: 15px 30px;
+        font-size: 18px;
+    }
+}
+
+.btn-adicionar-carrinho:hover:not(:disabled) {
+    background: #c29d5c;
+    transform: translateY(-3px);
+}
+
+.btn-adicionar-carrinho:disabled {
+    cursor: default;
+    transform: none;
+}
+
+/* ==========================================================================
+   13. BOTÃO COMPRAR (.btn-comprar-interno)
+   ========================================================================== */
 .btn-comprar-interno {
     display: block;
     text-align: center;
@@ -232,7 +272,9 @@
     transform: translateY(-3px);
 }
 
-/* Ficha Técnica */
+/* ==========================================================================
+   14. FICHA TÉCNICA (.produto-ficha-tecnica)
+   ========================================================================== */
 .produto-ficha-tecnica {
     background: #ffffff;
     padding: 18px;
@@ -250,6 +292,9 @@
     }
 }
 
+/* ==========================================================================
+   15. TÍTULO DA FICHA TÉCNICA (.produto-ficha-tecnica h3)
+   ========================================================================== */
 .produto-ficha-tecnica h3 {
     color: #081f3f;
     margin-top: 0;
@@ -266,6 +311,9 @@
     }
 }
 
+/* ==========================================================================
+   16. LISTA DA FICHA TÉCNICA (.produto-ficha-tecnica ul)
+   ========================================================================== */
 .produto-ficha-tecnica ul {
     list-style: none;
     padding: 0;
@@ -281,6 +329,9 @@
     }
 }
 
+/* ==========================================================================
+   17. ITENS DA LISTA (.produto-ficha-tecnica li)
+   ========================================================================== */
 .produto-ficha-tecnica li {
     padding: 10px 12px;
     background: #f8fafc;
@@ -298,7 +349,9 @@
     }
 }
 
-/* Mensagens de Erro/Carregamento */
+/* ==========================================================================
+   18. MENSAGENS DE ESTADO (.carregando / .erro-produto)
+   ========================================================================== */
 .carregando, .erro-produto {
     text-align: center;
     padding: 30px 15px;

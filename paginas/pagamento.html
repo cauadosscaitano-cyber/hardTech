@@ -6,7 +6,7 @@
     <link rel="icon" href="../img/hardtech_logo_v1_2-Photoroom.png">
     <link rel="stylesheet" href="../CSS/layout.css">
     <link rel="stylesheet" href="../CSS/pagamento.css">
-    <link rel="stylesheet" href="../CSS/temas/tema-form.css">
+    <link rel="stylesheet" href="../CSS/temas/tema.css">
     <title>HARDTECH</title>
 </head>
 <body>
@@ -89,7 +89,7 @@
 
 </form>
 
-    <section id="confirmacao" class="card-resumo">
+    <section id="confirmacao">
     <h2>Resumo da Compra</h2>
     
     <article class="resumo-container">
@@ -101,13 +101,13 @@
         <section class="resumo-dados">
             
             <p class="detalhe-item produto-destaque">
-                <span class="label-detalhe">Produto:</span>
-                <strong id="resProduto" class="valor-detalhe text-blue">-</strong>
+                <span>Produto:</span>
+                <strong id="resProduto" class="text-blue">-</strong>
             </p>
             
             <p class="detalhe-item preco-destaque-box">
-                <span class="label-detalhe">Valor Total:</span>
-                <strong id="resPreco" class="valor-detalhe text-gold">-</strong>
+                <span>Valor Total:</span>
+                <strong id="resPreco" class="text-gold">-</strong>
             </p>
 
             <hr class="divisor-resumo">
@@ -135,7 +135,8 @@
         <button type="button" onclick="enviarCompra()" class="btn-finalizar-total">Confirmar e Finalizar Pedido</button>
     </section>
 </section>
-    <script src="../javaScript/layout.js"></script>
-    <script src="../javaScript/pagamento.js"></script>
+    <script src="../javaScript-refatorado/utils.js"></script>
+    <script src="../javaScript-refatorado/layout.js"></script>
+    <script src="../javaScript-refatorado/pagamento.js"></script>
 </body>
 </html>

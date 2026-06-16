@@ -358,6 +358,32 @@ summary:hover {
 }
 
 /* ============================================================
+   CONTEÚDO PRINCIPAL (BASE PARA TODAS AS PÁGINAS COM NAV)
+   ============================================================ */
+.conteudo {
+    margin-left: 0;
+    margin-top: 70px;
+    padding: 16px;
+    background: #f2f5fa;
+    min-height: calc(100vh - 70px);
+}
+
+@media (min-width: 768px) {
+    .conteudo {
+        margin-top: 90px;
+        padding: 20px;
+        min-height: calc(100vh - 90px);
+    }
+}
+
+@media (min-width: 992px) {
+    .conteudo {
+        margin-left: 250px;
+        padding: 30px;
+    }
+}
+
+/* ============================================================
    FOOTER
    ============================================================ */
 .rodape-hardtech {

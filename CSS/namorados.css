@@ -1,36 +1,11 @@
 /* ==========================================================================
-   ESTRUTURA PRINCIPAL E TÍTULO DA PÁGINA (SEM INICIO.CSS)
+   PROMOÇÕES — DIA DOS NAMORADOS
+   Ordem: CSS segue a estrutura do HTML (banner → grid → cards)
    ========================================================================== */
 
 /* ==========================================================================
-   ESTRUTURA PRINCIPAL — Mobile primeiro
+   1. BANNER DA CAMPANHA (.banner-namorados)
    ========================================================================== */
-
-.conteudo-namorados {
-    margin-left: 0;
-    margin-top: 70px;
-    padding: 16px;
-    box-sizing: border-box;
-    background: #f2f5fa;
-    min-height: calc(100vh - 70px);
-}
-
-@media (min-width: 768px) {
-    .conteudo-namorados {
-        margin-top: 90px;
-        padding: 20px;
-        min-height: calc(100vh - 90px);
-    }
-}
-
-@media (min-width: 992px) {
-    .conteudo-namorados {
-        margin-left: 250px;
-        padding: 30px;
-    }
-}
-
-/* O Cabeçalho interno do Main — Mobile primeiro */
 .banner-namorados {
     background: linear-gradient(135deg, #1b0926, #42123b);
     color: #ffffff;
@@ -56,6 +31,9 @@
     }
 }
 
+/* ==========================================================================
+   2. TAG DA CAMPANHA (.banner-namorados .tag-campcampaign)
+   ========================================================================== */
 .banner-namorados .tag-campcampaign {
     display: inline-block;
     background: #d8b16f;
@@ -76,6 +54,9 @@
     }
 }
 
+/* ==========================================================================
+   3. TÍTULO DO BANNER (.banner-namorados h2)
+   ========================================================================== */
 .banner-namorados h2 {
     font-size: 24px;
     margin: 0 0 10px 0;
@@ -96,6 +77,9 @@
     }
 }
 
+/* ==========================================================================
+   4. PARÁGRAFO DO BANNER (.banner-namorados p)
+   ========================================================================== */
 .banner-namorados p {
     font-size: 14px;
     margin: 0;
@@ -110,7 +94,10 @@
     }
 }
 
-/* GRID DE PRODUTOS — Mobile: lista vertical de cards horizontais */
+/* ==========================================================================
+   5. GRID DE PRODUTOS (.grid-produtos-namorados)
+   Mobile: lista vertical de cards horizontais
+   ========================================================================== */
 .grid-produtos-namorados {
     display: flex;
     flex-direction: column;
@@ -118,7 +105,10 @@
     box-sizing: border-box;
 }
 
-/* CARDS DOS PRODUTOS — Mobile: horizontal (estilo Pichau) */
+/* ==========================================================================
+   6. CARD DE PRODUTO (.card-produto-namorados)
+   Mobile: horizontal (estilo Pichau)
+   ========================================================================== */
 .card-produto-namorados {
     background: #ffffff;
     border-radius: 8px;
@@ -139,6 +129,9 @@
     box-shadow: 0 8px 20px rgba(66, 18, 59, 0.15);
 }
 
+/* ==========================================================================
+   7. FIGURE DO CARD (.card-produto-namorados figure)
+   ========================================================================== */
 .card-produto-namorados figure {
     margin: 0;
     padding: 6px;
@@ -147,6 +140,9 @@
     flex-shrink: 0;
 }
 
+/* ==========================================================================
+   8. IMAGEM DO CARD (.card-produto-namorados img)
+   ========================================================================== */
 .card-produto-namorados img {
     width: 90px;
     height: 90px;
@@ -154,6 +150,9 @@
     display: block;
 }
 
+/* ==========================================================================
+   9. INFO DO PRODUTO (.card-produto-namorados .info-produto)
+   ========================================================================== */
 .card-produto-namorados .info-produto {
     display: flex;
     flex-direction: column;
@@ -161,6 +160,9 @@
     min-width: 0;
 }
 
+/* ==========================================================================
+   10. TÍTULO DO CARD (.card-produto-namorados h3)
+   ========================================================================== */
 .card-produto-namorados h3 {
     color: #081f3f;
     font-size: 14px;
@@ -169,6 +171,9 @@
     line-height: 1.3;
 }
 
+/* ==========================================================================
+   11. PARÁGRAFO DO CARD (.card-produto-namorados p)
+   ========================================================================== */
 .card-produto-namorados p {
     color: #666666;
     font-size: 12px;
@@ -177,7 +182,9 @@
     min-height: 0;
 }
 
-/* SEÇÃO EXCLUSIVA DE PRECIFICAÇÃO — Mobile: alinhado à esquerda */
+/* ==========================================================================
+   12. BLOCO DE PREÇO (.bloco-preco-card)
+   ========================================================================== */
 .bloco-preco-card {
     display: flex;
     flex-direction: column;
@@ -186,6 +193,9 @@
     margin-bottom: 8px;
 }
 
+/* ==========================================================================
+   13. PREÇO ANTIGO (.preco-antigo)
+   ========================================================================== */
 .preco-antigo {
     font-size: 12px;
     color: #a0aec0;
@@ -193,6 +203,9 @@
     font-weight: 500;
 }
 
+/* ==========================================================================
+   14. PREÇO PROMOCIONAL (.preco-namorados)
+   ========================================================================== */
 .preco-namorados {
     display: block;
     font-size: 18px;
@@ -200,7 +213,9 @@
     color: #d8b16f;
 }
 
-/* BOTÃO DE COMPRA — Mobile: compacto */
+/* ==========================================================================
+   15. BOTÃO COMPRAR NO CARD (.card-produto-namorados a.btn-comprar)
+   ========================================================================== */
 .card-produto-namorados a.btn-comprar {
     display: inline-block;
     text-decoration: none;
@@ -223,7 +238,10 @@
     background: #10366d;
 }
 
-/* RESPONSIVIDADE — Tablet (≥ 480px) e Desktop (≥ 768px): grid de cards verticais */
+/* ==========================================================================
+   16. RESPONSIVIDADE — Tablet (≥ 480px)
+   Grid de 2 colunas, cards verticais
+   ========================================================================== */
 @media (min-width: 480px) {
     .grid-produtos-namorados {
         display: grid;
@@ -279,6 +297,10 @@
     }
 }
 
+/* ==========================================================================
+   17. RESPONSIVIDADE — Desktop (≥ 992px)
+   Grid de 3 colunas
+   ========================================================================== */
 @media (min-width: 992px) {
     .grid-produtos-namorados {
         grid-template-columns: repeat(3, 1fr);

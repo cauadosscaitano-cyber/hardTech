@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../CSS/layout.css">
-    <link rel="stylesheet" href="../CSS/contatos.css">
-    <link rel="stylesheet" href="../CSS/temas/tema-form.css">
+    <link rel="stylesheet" href="../CSS/pagamento.css">
+    <link rel="stylesheet" href="../CSS/temas/tema.css">
     <link rel="icon" href="../img/hardtech_logo_v1_2-Photoroom.png">
     <title>HARDTECH</title>
 </head>
@@ -43,38 +43,37 @@
         </section>
     </form>
 
-    <section id="confirmacao" class="card-resumo">
-        <h2>Resumo do seu Contato</h2>
+    <section id="confirmacao">
+    <h2>Resumo do seu Contato</h2>
+    
+    <section class="resumo-dados">
         
-        <article class="resumo-container contato-resumo-ajuste">
-            <section class="resumo-dados">
-                
-                <header class="detalhe-item produto-destaque">
-                    <span class="label-detalhe">Status do Envio:</span>
-                    <strong class="valor-detalhe text-blue">Pronto para Enviar</strong>
-                </header>
+        <header class="detalhe-item produto-destaque">
+            <span>Status do Envio:</span>
+            <strong class="text-blue">Pronto para Enviar</strong>
+        </header>
 
-                <section class="detalhe-grid-dados">
-                    <p><strong>Nome:</strong> <span id="resNome">-</span></p>
-                    <p><strong>E-mail:</strong> <span id="resEmail">-</span></p>
-                    <p><strong>Data de Nasc.:</strong> <span id="resDataNasc">-</span></p>
-                </section>
+        <section class="detalhe-grid-dados">
+            <p><strong>Nome:</strong> <span id="resNome">-</span></p>
+            <p><strong>E-mail:</strong> <span id="resEmail">-</span></p>
+            <p><strong>Data de Nasc.:</strong> <span id="resDataNasc">-</span></p>
+        </section>
 
-                <hr class="divisor-resumo">
+        <hr class="divisor-resumo">
 
-                <section class="mensagem-bloco-resumo">
-                    <strong>Mensagem:</strong>
-                    <p id="resMensagem" class="texto-mensagem-preview">-</p>
-                </section>
-            </section>
-        </article>
-
-        <footer class="acoes-resumo">
-            <button type="button" onclick="enviarContato()" class="btn-finalizar-total">Enviar Mensagem Agora</button>
-        </footer>
+        <section class="mensagem-bloco-resumo">
+            <strong>Mensagem:</strong>
+            <p id="resMensagem" class="texto-mensagem-preview">-</p>
+        </section>
     </section>
 
-    <script src="../javaScript/layout.js"></script>
-    <script src="../javaScript/script.js"></script>
+    <footer class="acoes-resumo">
+        <button type="button" onclick="enviarContato()" class="btn-finalizar-total">Enviar Mensagem Agora</button>
+    </footer>
+</section>
+
+    <script src="../javaScript-refatorado/utils.js"></script>
+    <script src="../javaScript-refatorado/layout.js"></script>
+    <script src="../javaScript-refatorado/contato.js"></script>
 </body>
 </html>

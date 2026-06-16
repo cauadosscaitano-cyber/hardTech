@@ -1,11 +1,16 @@
+// ==========================================================================
+// BANCO DE DADOS FICTÍCIO (Simulação de um catálogo de produtos via Objeto)
+// ==========================================================================
+// Declara uma constante chamada 'bancoProdutos' que armazena múltiplos objetos.
+// Cada "chave" (ex: "rtx5070", "ryzen7") representa o identificador único do produto.
 const bancoProdutos = {
     "rtx5070": {
         nome: "Placa de Vídeo RTX 5070",
         imagem: "../img/img-promocoes/rtx5070.webp",
         preco: "3.999,90",
-        valorUrl: "3999.90",
+        valorUrl: "3999.90", // Valor puro sem formatação, ideal para enviar via parâmetros da URL
         descricaoCurta: "12GB GDDR7 - O amor na velocidade máxima dos quadros.",
-        especificacoes: [
+        especificacoes: [ // Array (lista) de strings contendo os detalhes técnicos do componente
             "Memória de Vídeo: 12GB GDDR7",
             "Interface de Memória: 192-bit",
             "Suporte a Ray Tracing: Sim (Geração 4)",
@@ -197,7 +202,7 @@ const bancoProdutos = {
     },
     "i714700k": {
         nome: "Intel Core i7-14700K",
-        imagem: "../img/img-index/intel_i7.png",
+        imagem: "../img/index/intel_i7.png",
         preco: "2.699,90",
         valorUrl: "2699.90",
         descricaoCurta: "Alta performance com 20 núcleos e clock dinâmico para multitarefas e streaming.",
@@ -239,58 +244,112 @@ const bancoProdutos = {
     }
 };
 
-// 1. Capturar o parâmetro 'id' enviado pela URL
+// ----------------------------------------------------------------=========
+// LÓGICA DE CAPTURA DO PRODUTO VIA QUERY STRINGS (Parâmetros da URL)
+// ----------------------------------------------------------------=========
+// Instancia o objeto para ler a URL atual da janela (ex: detalhe.html?id=rtx5070)
 const parametros = new URLSearchParams(window.location.search);
+// Extrai apenas o valor associado à palavra 'id' (no exemplo acima, trará "rtx5070")
 const produtoId = parametros.get("id");
 
+// Captura a div ou elemento HTML onde toda a estrutura do produto será renderizada
 const container = document.getElementById("containerProduto");
 
-// 2. Verificar se o id existe no nosso banco de dados
+// 2. Verificar se o id foi informado e se ele realmente existe dentro do nosso catálogo 'bancoProdutos'
 if (produtoId && bancoProdutos[produtoId]) {
+    // Cria um atalho chamado 'prod' apontando direto para as informações do produto selecionado
     const prod = bancoProdutos[produtoId];
 
-    // Gerar a lista de especificações em HTML
+    // Cria uma variável string vazia que servirá para acumular as tags de lista (<li>) das especificações
     let listaSpecsHtml = "";
+    
+    // Roda uma função de loop por cada elemento dentro do array 'especificacoes' do produto
     prod.especificacoes.forEach(function(spec) {
+        // Concatena (junta) uma nova tag li contendo o texto da especificação atual à variável acumuladora
         listaSpecsHtml += `<li>${spec}</li>`;
     });
 
-    // 3. Injetar a estrutura da vitrine no container do HTML
+    // 3. Injetar a estrutura da vitrine no container do HTML usando Template Literals (crases)
     container.innerHTML = `
-        <article class="produto-detalhe-wrapper">
-            <figure class="produto-imagem-lateral">
-                <img src="${prod.imagem}" alt="${prod.nome}">
-            </figure>
+    <article class="produto-detalhe-wrapper">
+        <figure class="produto-imagem-lateral">
+            <img src="${prod.imagem}" alt="${prod.nome}">
+        </figure>
 
-            <section class="produto-info-lateral">
-                <h2>${prod.nome}</h2>
-                <p class="descricao-interna">${prod.descricaoCurta}</p>
-                
-                <aside class="preco-container-interno">
-                    <span class="label-preco">Preço à vista no Pix:</span>
-                    <strong class="preco-valor-interno">R$ ${prod.preco}</strong>
-                    <span class="sub-preco">Ou em até 10x sem juros no cartão</span>
-                </aside>
+        <section class="produto-info-lateral">
+            <h2>${prod.nome}</h2>
+            <p class="descricao-interna">${prod.descricaoCurta}</p>
+            
+            <aside class="preco-container-interno">
+                <span class="label-preco">Preço à vista no Pix:</span>
+                <strong class="preco-valor-interno">R$ ${prod.preco}</strong>
+                <span class="sub-preco">Ou em até 10x sem juros no cartão</span>
+            </aside>
 
-                <a href="./pagamento.html?produto=${encodeURIComponent(prod.nome)}&preco=${prod.valorUrl}" class="btn-comprar-interno">
-                    Comprar
-                </a>
-            </section>
-        </article>
+            <button id="btn-adicionar-carrinho" class="btn-adicionar-carrinho">
+                🛒 Adicionar ao Carrinho
+            </button>
 
-        <section class="produto-ficha-tecnica">
-            <h3>Ficha Técnica / Especificações</h3>
-            <ul>
-                ${listaSpecsHtml}
-            </ul>
+            <a href="./pagamento.html?produto=${encodeURIComponent(prod.nome)}&preco=${prod.valorUrl}" class="btn-comprar-interno">
+                Comprar Agora
+            </a>
         </section>
-    `;
+    </article>
+
+    <section class="produto-ficha-tecnica">
+        <h3>Ficha Técnica / Especificações</h3>
+        <ul>
+            ${listaSpecsHtml}
+        </ul>
+    </section>
+`;
     
-    // Atualizar o título da aba do navegador para ficar profissional
+    // Altera dinamicamente o texto impresso na aba lá de cima do navegador do usuário
     document.title = `HardTech - ${prod.nome}`;
 
+    // Captura o botão de adicionar ao carrinho recém-criado dentro do innerHTML acima
+    const btnCarrinho = document.getElementById('btn-adicionar-carrinho');
+
+    // Se o botão foi renderizado com sucesso...
+    if (btnCarrinho) {
+        // Adiciona o monitoramento de clique para gerenciar o localStorage
+        btnCarrinho.addEventListener('click', function () {
+            // Busca o carrinho salvo ou cria um array vazio em texto caso não exista nenhum produto salvo ainda
+            const carrinho = JSON.parse(localStorage.getItem('hardtech-carrinho') || '[]');
+            
+            // O método '.some()' varre a lista e retorna TRUE se encontrar pelo menos um item que possua o mesmo ID
+            const jaExiste = carrinho.some(item => item.id === produtoId);
+
+            // Se o produto já foi adicionado antes, muda o texto do botão, altera a cor para azul escuro e para a execução
+            if (jaExiste) {
+                btnCarrinho.textContent = '✓ Já está no carrinho!';
+                btnCarrinho.style.background = '#17345d';
+                return; 
+            }
+
+            // Se for um item inédito, insere um novo objeto contendo ID, Nome e Preço no final do array do carrinho
+            carrinho.push({
+                id:    produtoId,
+                nome:  prod.nome,
+                preco: prod.preco
+            });
+
+            // Converte o array modificado em uma string de texto corrido JSON e salva de volta no localStorage
+            localStorage.setItem('hardtech-carrinho', JSON.stringify(carrinho));
+
+            // Atualiza o feedback visual do botão para indicar sucesso (muda o texto e a cor para verde)
+            btnCarrinho.textContent = '✓ Adicionado ao Carrinho!';
+            btnCarrinho.style.background = '#1a6e3c';
+            
+            // Desativa o botão para impedir que o usuário clique repetidamente no mesmo item
+            btnCarrinho.disabled = true;
+        });
+    }
+
 } else {
-    // Caso o produto não seja encontrado (Uso de tags semânticas para acessibilidade e SEO)
+    // TRATAMENTO DE ERRO: Caso o ID digitado na URL não exista ou esteja em branco...
+    // Injeta um layout de erro usando tags semânticas (article, header, footer) para acessibilidade e SEO
+    // O 'aria-live="polite"' avisa imediatamente leitores de tela de que houve uma mudança de conteúdo de erro ali
     container.innerHTML = `
         <article class="erro-produto" aria-live="polite">
             <header>
