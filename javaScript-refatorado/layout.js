@@ -80,20 +80,20 @@ if (mainNav) {
 // ------------------------------------------
 // 2. ACCORDION DE DETAILS (apenas um aberto por vez)
 // ------------------------------------------
-// Se o menu existir...
 if (mainNav) {
-    // Seleciona todas as tags HTML <details> de dentro do menu (usadas para submenus retráteis)
     const allDetails = mainNav.querySelectorAll('details');
 
-    // Varre cada um dos elementos <details> encontrados
+    // ⚠️ CORREÇÃO: Fecha todos os details ao carregar qualquer página
+    // Isso resolve o problema do submenu abrir sozinho nas páginas internas
     allDetails.forEach(detail => {
-        // Adiciona o evento nativo 'toggle', disparado sempre que a tag abre ou fecha
+        detail.removeAttribute('open');
+    });
+
+    // Agora sim, adiciona o evento toggle para permitir apenas um aberto por vez
+    allDetails.forEach(detail => {
         detail.addEventListener('toggle', () => {
-            // Se este elemento específico acabou de ser aberto...
             if (detail.open) {
-                // Percorre todos os OUTROS elementos do menu
                 allDetails.forEach(other => {
-                    // Se o outro elemento for diferente deste que abriu, remove o atributo 'open' dele (fechando-o)
                     if (other !== detail) other.removeAttribute('open');
                 });
             }

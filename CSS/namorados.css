@@ -34,7 +34,7 @@
 /* ==========================================================================
    2. TAG DA CAMPANHA (.banner-namorados .tag-campcampaign)
    ========================================================================== */
-.banner-namorados .tag-campcampaign {
+.banner-namorados .tag-campaign {
     display: inline-block;
     background: #d8b16f;
     color: #081f3f;
@@ -47,7 +47,7 @@
 }
 
 @media (min-width: 768px) {
-    .banner-namorados .tag-campcampaign {
+    .banner-namorados .tag-campaign {
         padding: 5px 12px;
         font-size: 12px;
         margin-bottom: 15px;

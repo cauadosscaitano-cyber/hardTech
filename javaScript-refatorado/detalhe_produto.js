@@ -275,7 +275,6 @@ if (produtoId && bancoProdutos[produtoId]) {
         <figure class="produto-imagem-lateral">
             <img src="${prod.imagem}" alt="${prod.nome}">
         </figure>
-
         <section class="produto-info-lateral">
             <h2>${prod.nome}</h2>
             <p class="descricao-interna">${prod.descricaoCurta}</p>

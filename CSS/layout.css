@@ -1,32 +1,51 @@
+/* ============================================================
+   LAYOUT.CSS — Estilos compartilhados por TODAS as páginas
+   Contém: reset global, header fixo, search form animado,
+   menu hambúrguer, navegação lateral, submenus,
+   conteúdo principal (.conteudo) e footer
+   ============================================================ */
+
+/* ============================================================
+   RESET GLOBAL
+   Zera margens/paddings e usa border-box em todos os elementos
+   ============================================================ */
+
+/* Remove margens e paddings padrão de todos os elementos
+   e faz com que padding e borda sejam incluídos no cálculo de largura/altura */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Define a fonte padrão e a cor de fundo azul escuro para todo o site */
 body {
     font-family: Arial, sans-serif;
     background: #081f3f;
 }
 
 /* ============================================================
-   HEADER
+   HEADER FIXO NO TOPO
+   Barra superior que contém logo, nome da loja e busca
    ============================================================ */
+
+/* Container principal do cabeçalho — fixo no topo ao rolar a página */
 header {
-    height: 70px;
-    background: #081f3f;
+    height: 70px;                      /* Altura no mobile */
+    background: #081f3f;               /* Azul escuro, mesmo fundo do body */
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: space-between;    /* Logo à esquerda, busca à direita */
+    align-items: center;               /* Centraliza verticalmente */
     padding: 0 20px;
-    border-bottom: 2px solid #d8b16f;
-    position: fixed;
+    border-bottom: 2px solid #d8b16f;  /* Linha dourada separando do conteúdo */
+    position: fixed;                   /* Fixo no topo mesmo ao rolar */
     top: 0;
     left: 0;
-    width: 100%;
-    z-index: 1000;
+    width: 100%;                       /* Ocupa toda a largura */
+    z-index: 1000;                     /* Fica acima de todo o conteúdo */
 }
 
+/* Tablet/Desktop: header mais alto e com mais padding lateral */
 @media (min-width: 768px) {
     header {
         height: 90px;
@@ -34,18 +53,25 @@ header {
     }
 }
 
+/* ============================================================
+   LOGO + NOME DA LOJA (.logo-area)
+   ============================================================ */
+
+/* Agrupa a imagem da logo e o nome "HARDTECH" lado a lado */
 .logo-area {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 10px;                         /* Espaço entre a logo e o nome */
 }
 
+/* Imagem da logo (ícone do foguete/tech) */
 .logo-area img {
-    width: 44px;
+    width: 44px;                       /* Tamanho no mobile */
     height: 44px;
-    object-fit: contain;
+    object-fit: contain;               /* Mantém a proporção sem distorcer */
 }
 
+/* Desktop: logo maior */
 @media (min-width: 768px) {
     .logo-area img {
         width: 60px;
@@ -53,13 +79,15 @@ header {
     }
 }
 
+/* Nome da loja "HARDTECH" */
 .logo-area h1 {
     color: #ffffff;
-    font-size: 22px;
-    letter-spacing: 2px;
+    font-size: 22px;                   /* Tamanho no mobile */
+    letter-spacing: 2px;               /* Espaçamento entre letras */
     font-family: Arial, sans-serif;
 }
 
+/* Desktop: nome maior */
 @media (min-width: 768px) {
     .logo-area h1 {
         font-size: 32px;
@@ -67,18 +95,22 @@ header {
 }
 
 /* ============================================================
-   SEARCH FORM
+   FORMULÁRIO DE BUSCA ANIMADO (.search-form)
+   Começa como um círculo e expande ao receber foco
    ============================================================ */
+
+/* Container do formulário de busca — escondido no mobile */
 .search-form {
-    display: none;
+    display: none;                     /* Mobile: não aparece */
     align-items: center;
     justify-content: center;
     gap: 15px;
-    position: relative;
+    position: relative;                /* Para posicionar o ícone absolutamente */
     margin-right: 10px;
     margin-left: 10px;
 }
 
+/* Tablet/Desktop: formulário de busca fica visível */
 @media (min-width: 768px) {
     .search-form {
         display: flex;
@@ -87,26 +119,29 @@ header {
     }
 }
 
+/* Campo de input da busca — começa como um círculo pequeno */
 .input {
     border: none;
     height: 42px;
-    width: 42px;
+    width: 42px;                       /* Largura inicial: círculo perfeito */
     padding: 10px;
     outline: none;
-    border-radius: 50%;
-    transition: 0.5s ease-in-out;
+    border-radius: 50%;                /* Formato circular */
+    transition: 0.5s ease-in-out;      /* Animação suave ao expandir */
     background-color: #0c3165;
     box-shadow: 0 0 3px #0e3d7f;
-    padding-right: 40px;
-    color: #fff;
+    padding-right: 40px;               /* Espaço para o ícone da lupa */
+    color: #fff;                       /* Texto branco */
 }
 
+/* Fonte do texto digitado e do placeholder */
 .input,
 .input::placeholder {
     font-family: "Trebuchet MS", Arial, sans-serif;
     font-size: 15px;
 }
 
+/* Desktop: campo um pouco maior */
 @media (min-width: 768px) {
     .input {
         height: 50px;
@@ -115,26 +150,29 @@ header {
     }
 }
 
+/* Cor do texto placeholder (guia) */
 .input::placeholder {
     color: #8f8f8f;
 }
 
+/* Ícone da lupa — botão que aciona a busca */
 .icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    position: absolute;
+    position: absolute;                /* Posicionado sobre o input */
     right: 0;
     width: 42px;
     height: 42px;
     border: none;
     outline: none;
-    border-radius: 50%;
+    border-radius: 50%;                /* Circular */
     cursor: pointer;
     background: transparent;
     transition: 0.2s linear;
 }
 
+/* Desktop: ícone maior */
 @media (min-width: 768px) {
     .icon {
         width: 50px;
@@ -142,16 +180,20 @@ header {
     }
 }
 
+/* QUANDO O ÍCONE OU O INPUT RECEBEM FOCO:
+   O campo expande horizontalmente, perde o formato circular
+   e ganha uma linha azul na base */
 .icon:focus ~ .input,
 .input:focus {
-    width: 180px;
-    border-radius: 0;
+    width: 180px;                      /* Expandido no mobile */
+    border-radius: 0;                  /* Remove o formato circular */
     background: transparent;
-    border-bottom: 3px solid #1557c0;
+    border-bottom: 3px solid #1557c0;  /* Linha azul na parte inferior */
     box-shadow: none;
-    transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2);
+    transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2); /* Animação elástica */
 }
 
+/* Desktop: campo expande ainda mais */
 @media (min-width: 768px) {
     .icon:focus ~ .input,
     .input:focus {
@@ -160,43 +202,55 @@ header {
 }
 
 /* ============================================================
-   HAMBURGER BUTTON (mobile only)
+   BOTÃO HAMBÚRGUER (mobile/tablet apenas)
+   Ícone de 3 barras que abre o menu lateral no mobile
    ============================================================ */
+
+/* Botão do menu hambúrguer */
 .hamburger {
     display: flex;
-    flex-direction: column;
+    flex-direction: column;            /* Empilha as 3 barras verticalmente */
     justify-content: center;
     align-items: center;
-    gap: 5px;
+    gap: 5px;                          /* Espaço entre as barras */
     width: 40px;
     height: 40px;
     background: transparent;
     border: none;
     cursor: pointer;
     padding: 5px;
-    z-index: 1100;
-    flex-shrink: 0;
+    z-index: 1100;                     /* Acima do menu e do header */
+    flex-shrink: 0;                    /* Não deixa o botão encolher */
 }
 
+/* Cada barra individual do hambúrguer */
 .hamburger span {
     display: block;
     width: 24px;
     height: 2px;
     background: #ffffff;
     border-radius: 2px;
-    transition: 0.3s ease;
+    transition: 0.3s ease;             /* Animação ao abrir/fechar */
 }
 
+/* ANIMAÇÃO: quando o menu está aberto (.open) */
+
+/* Barra superior: desce 7px e gira 45 graus (vira a perna esquerda do X) */
 .hamburger.open span:nth-child(1) {
     transform: translateY(7px) rotate(45deg);
 }
+
+/* Barra do meio: desaparece completamente */
 .hamburger.open span:nth-child(2) {
     opacity: 0;
 }
+
+/* Barra inferior: sobe 7px e gira -45 graus (vira a perna direita do X) */
 .hamburger.open span:nth-child(3) {
     transform: translateY(-7px) rotate(-45deg);
 }
 
+/* Desktop: esconde o botão hambúrguer (menu fica sempre visível) */
 @media (min-width: 992px) {
     .hamburger {
         display: none;
@@ -204,126 +258,146 @@ header {
 }
 
 /* ============================================================
-   OVERLAY (mobile nav backdrop)
+   OVERLAY (fundo escuro atrás do menu mobile)
+   Aparece quando o menu lateral está aberto no mobile/tablet
    ============================================================ */
+
+/* Camada escura semi-transparente que cobre toda a tela */
 .nav-overlay {
-    display: none;
+    display: none;                     /* Escondido por padrão */
     position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.55);
-    z-index: 998;
+    inset: 0;                          /* Ocupa a tela inteira (top, right, bottom, left = 0) */
+    background: rgba(0, 0, 0, 0.55);   /* Preto com 55% de opacidade */
+    z-index: 998;                      /* Abaixo do menu (999) mas acima do conteúdo */
 }
 
+/* Quando ativado via JS, o overlay fica visível */
 .nav-overlay.visible {
     display: block;
 }
 
 /* ============================================================
-   NAV LATERAL
+   NAVEGAÇÃO LATERAL (nav)
+   Menu principal com submenus retráteis
    ============================================================ */
 
-/* Remove a setinha padrão do details */
+/* Remove a setinha padrão do <details> nos navegadores WebKit (Chrome/Safari) */
 summary::-webkit-details-marker { display: none; }
+
+/* Remove o marcador de lista padrão do <summary> */
 summary { list-style: none; }
 
+/* Barra de navegação lateral fixa */
 nav {
-    width: 260px;
+    width: 260px;                      /* Largura no mobile */
     background: #081f3f;
-    border-right: 2px solid #d8b16f;
+    border-right: 2px solid #d8b16f;   /* Borda dourada à direita */
     position: fixed;
-    top: 70px;
+    top: 70px;                         /* Abaixo do header mobile */
     left: 0;
-    bottom: 0;
-    z-index: 999;
-    overflow: visible; /* desktop: submenus saem lateralmente */
+    bottom: 0;                         /* Estica até o final da tela */
+    z-index: 999;                      /* Acima do overlay, abaixo do header */
+    overflow: visible;                 /* Desktop: submenus podem sair lateralmente */
     display: flex;
     flex-direction: column;
     padding-bottom: 30px;
 
-    /* Mobile: escondido fora da tela por padrão */
+    /* MOBILE: escondido fora da tela (à esquerda) */
     transform: translateX(-100%);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease;   /* Animação suave ao abrir/fechar */
 }
 
-/* Mobile/tablet: scroll vertical no nav aberto */
+/* Mobile/tablet: permite scroll vertical quando o menu está aberto e é maior que a tela */
 @media (max-width: 991px) {
     nav {
-        overflow-y: auto;
-        overflow-x: hidden;
+        overflow-y: auto;              /* Scroll vertical */
+        overflow-x: hidden;            /* Esconde scroll horizontal */
     }
 }
 
+/* Tablet: ajusta o topo para o header mais alto (90px) */
 @media (min-width: 768px) {
     nav {
         top: 90px;
     }
 }
 
+/* DESKTOP: menu sempre visível no lado esquerdo */
 @media (min-width: 992px) {
     nav {
-        transform: translateX(0); /* sempre visível em desktop */
+        transform: translateX(0);      /* Remove o deslocamento (sempre visível) */
         width: 250px;
-        overflow: visible; /* permite que o submenu saia para fora do nav lateralmente */
+        overflow: visible;             /* Submenus flutuam para fora do menu */
     }
 }
 
+/* Classe adicionada via JavaScript para abrir o menu no mobile */
 nav.nav-open {
-    transform: translateX(0);
+    transform: translateX(0);          /* Traz o menu para dentro da tela */
 }
 
+/* Remove os bullets (bolinhas) de todas as listas dentro do menu */
 nav ul {
     list-style: none;
 }
 
 /* ============================================================
-   DETAILS / SUBMENUS
+   SUBMENUS (details/summary)
+   Comportamento: expande para baixo no mobile,
+   flutua para a direita no desktop
    ============================================================ */
+
+/* Container de cada submenu — posicionamento relativo 
+   para que os filhos possam ser posicionados absolutamente */
 details {
     position: relative;
     width: 100%;
 }
 
-/* Mobile/tablet: submenu expande para baixo, dentro do nav */
+/* MOBILE/TABLET: submenu expande para baixo, empurrando o conteúdo */
 @media (max-width: 991px) {
     details ul {
-        display: none;
-        position: static;
+        display: none;                 /* Escondido por padrão */
+        position: static;              /* Fluxo normal do documento */
         left: auto;
         top: auto;
         min-width: unset;
-        width: 100%;
-        background: #0d2c57;
+        width: 100%;                   /* Ocupa toda a largura do menu */
+        background: #0d2c57;           /* Azul um pouco mais claro */
         border: 1px solid #d8b16f;
         border-top: none;
         box-shadow: none;
         z-index: 1000;
     }
 
+    /* Quando o details está aberto, mostra a lista */
     details[open] ul {
         display: block;
     }
 }
 
-/* Desktop: submenu flutua para o lado direito do nav */
+/* DESKTOP: submenu flutua para o lado direito do menu */
 @media (min-width: 992px) {
     details ul {
-        display: none;
-        position: absolute;
+        display: none;                 /* Escondido por padrão */
+        position: absolute;            /* Flutua sobre o conteúdo */
         top: 0;
-        left: 100%;
+        left: 100%;                    /* Colado à direita do menu */
         min-width: 220px;
         background: #0d2c57;
         border: 1px solid #d8b16f;
         border-left: none;
-        box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+        box-shadow: 5px 5px 15px rgba(0,0,0,0.3); /* Sombra para destacar */
         z-index: 1000;
     }
 
+    /* Quando aberto, mostra o submenu flutuante */
     details[open] ul {
         display: block;
     }
 }
 
+/* Estilo base para links e títulos de submenu (summary) */
 nav a,
 summary {
     display: block;
@@ -332,9 +406,10 @@ summary {
     text-decoration: none;
     font-size: 17px;
     font-weight: 500;
-    transition: .3s;
+    transition: .3s;                   /* Animação no hover */
 }
 
+/* Tablet/Desktop: fonte e padding maiores */
 @media (min-width: 768px) {
     nav a,
     summary {
@@ -343,31 +418,39 @@ summary {
     }
 }
 
+/* Efeito hover nos links e summaries:
+   fundo azul mais claro, texto dourado e leve deslocamento para a direita */
 nav a:hover,
 summary:hover {
     background: #10366d;
     color: #d8b16f;
-    padding-left: 35px;
+    padding-left: 35px;                /* Desloca 10px para a direita */
     cursor: pointer;
 }
 
+/* Item do menu que corresponde à página atual */
 .menu-ativo {
     background: #10366d;
-    color: #d8b16f !important;
-    border-left: 5px solid #d8b16f;
+    color: #d8b16f !important;         /* !important garante que sobreponha outros estilos */
+    border-left: 5px solid #d8b16f;    /* Barra dourada à esquerda */
 }
 
 /* ============================================================
-   CONTEÚDO PRINCIPAL (BASE PARA TODAS AS PÁGINAS COM NAV)
+   CONTEÚDO PRINCIPAL (.conteudo)
+   Área onde o conteúdo de cada página é renderizado.
+   Usada como classe base em todas as páginas com menu lateral.
    ============================================================ */
+
+/* Configuração base do conteúdo principal */
 .conteudo {
-    margin-left: 0;
-    margin-top: 70px;
+    margin-left: 0;                    /* Mobile: sem margem lateral */
+    margin-top: 70px;                  /* Compensa a altura do header fixo */
     padding: 16px;
-    background: #f2f5fa;
-    min-height: calc(100vh - 70px);
+    background: #f2f5fa;               /* Cinza bem claro para contraste */
+    min-height: calc(100vh - 70px);    /* Altura mínima: tela toda menos o header */
 }
 
+/* Tablet: ajusta margem superior para o header de 90px */
 @media (min-width: 768px) {
     .conteudo {
         margin-top: 90px;
@@ -376,41 +459,50 @@ summary:hover {
     }
 }
 
+/* Desktop: empurra o conteúdo para a direita,
+   abrindo espaço para o menu lateral fixo */
 @media (min-width: 992px) {
     .conteudo {
-        margin-left: 250px;
+        margin-left: 250px;            /* Mesma largura do menu lateral */
         padding: 30px;
     }
 }
 
 /* ============================================================
-   FOOTER
+   FOOTER (RODAPÉ)
+   Dividido em colunas: Departamentos, Institucional,
+   Ajuda e Redes Sociais
    ============================================================ */
+
+/* Container principal do rodapé */
 .rodape-hardtech {
-    background: #06162c;
+    background: #06162c;               /* Azul ainda mais escuro que o fundo */
     color: #ffffff;
     padding: 40px 20px 20px 20px;
-    margin-top: 60px;
-    border-top: 3px solid #d8b16f;
+    margin-top: 60px;                  /* Espaçamento do conteúdo acima */
+    border-top: 3px solid #d8b16f;     /* Linha dourada no topo do footer */
     font-family: Arial, sans-serif;
     box-sizing: border-box;
 }
 
+/* Desktop: footer acompanha o deslocamento do menu lateral */
 @media (min-width: 992px) {
     .rodape-hardtech {
-        margin-left: 250px;
+        margin-left: 250px;            /* Alinhado com o conteúdo principal */
         padding: 50px 30px 20px 30px;
     }
 }
 
+/* Grid que organiza as colunas do footer */
 .footer-container {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 0 auto;                    /* Centraliza o container */
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;    /* Mobile: 2 colunas */
     gap: 30px;
 }
 
+/* Tablet/Desktop: 4 colunas lado a lado */
 @media (min-width: 768px) {
     .footer-container {
         grid-template-columns: repeat(4, 1fr);
@@ -418,15 +510,17 @@ summary:hover {
     }
 }
 
+/* Título de cada coluna do footer (ex: "Departamentos") */
 .footer-coluna h3 {
-    color: #d8b16f;
+    color: #d8b16f;                    /* Dourado */
     font-size: 16px;
     margin-bottom: 16px;
     font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    text-transform: uppercase;         /* TEXTO EM MAIÚSCULAS */
+    letter-spacing: 1px;               /* Espaçamento entre letras */
 }
 
+/* Desktop: título um pouco maior */
 @media (min-width: 768px) {
     .footer-coluna h3 {
         font-size: 18px;
@@ -434,40 +528,52 @@ summary:hover {
     }
 }
 
+/* Remove bullets das listas do footer */
 .footer-coluna ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
+/* Espaçamento entre itens da lista */
 .footer-coluna ul li {
     margin-bottom: 10px;
 }
 
+/* Desktop: mais espaço entre itens */
 @media (min-width: 768px) {
     .footer-coluna ul li {
         margin-bottom: 12px;
     }
 }
 
+/* Links dentro das colunas do footer */
 .footer-coluna ul li a {
-    color: #b0c4de;
-    text-decoration: none;
+    color: #b0c4de;                    /* Azul claro acinzentado */
+    text-decoration: none;             /* Sem sublinhado */
     font-size: 14px;
-    transition: 0.3s ease;
+    transition: 0.3s ease;             /* Animação suave no hover */
 }
 
+/* Desktop: links um pouco maiores */
 @media (min-width: 768px) {
     .footer-coluna ul li a {
         font-size: 15px;
     }
 }
 
+/* Hover dos links: fica branco e desloca levemente para a direita */
 .footer-coluna ul li a:hover {
     color: #ffffff;
     padding-left: 5px;
 }
 
+/* ============================================================
+   NEWSLETTER (formulário de e-mail no footer)
+   Campo de e-mail + botão de envio lado a lado
+   ============================================================ */
+
+/* Container do formulário de newsletter */
 .footer-form {
     display: flex;
     align-items: center;
@@ -477,19 +583,21 @@ summary:hover {
     margin-bottom: 25px;
 }
 
+/* Campo de input do e-mail */
 .footer-form input {
     border: none;
     background: transparent;
     padding: 10px;
-    width: 100%;
+    width: 100%;                       /* Ocupa todo o espaço disponível */
     outline: none;
     color: #081f3f;
     font-size: 14px;
 }
 
+/* Botão de envio da newsletter */
 .footer-form button {
     border: none;
-    background: #d8b16f;
+    background: #d8b16f;               /* Dourado */
     cursor: pointer;
     padding: 10px 15px;
     border-radius: 4px;
@@ -499,45 +607,60 @@ summary:hover {
     transition: 0.3s;
 }
 
+/* Hover: dourado mais escuro */
 .footer-form button:hover {
     background: #c29d5c;
 }
 
+/* ============================================================
+   ÍCONES DE REDES SOCIAIS
+   ============================================================ */
+
+/* Container flexível para os ícones */
 .iconos-redes {
     display: flex;
-    gap: 12px;
+    gap: 12px;                         /* Espaço entre os ícones */
     margin-top: 15px;
-    flex-wrap: wrap;
+    flex-wrap: wrap;                   /* Quebra linha se não couber */
 }
 
+/* Cada botão/ícone de rede social */
 .social-btn {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 42px;
     height: 42px;
-    background: #ffffff;
-    color: #081f3f;
-    border-radius: 50%;
+    background: #ffffff;               /* Fundo branco */
+    color: #081f3f;                    /* Ícone azul escuro */
+    border-radius: 50%;                /* Circular */
     text-decoration: none;
     transition: 0.3s ease;
 }
 
+/* Hover: fundo dourado, ícone azul escuro, sobe 3px */
 .social-btn:hover {
     background: #d8b16f;
     color: #06162c;
     transform: translateY(-3px);
 }
 
+/* ============================================================
+   BARRA DE DIREITOS AUTORAIS
+   Última linha do footer
+   ============================================================ */
+
+/* Texto centralizado de copyright */
 .footer-direitos {
     text-align: center;
     margin-top: 40px;
     padding-top: 20px;
-    border-top: 1px solid #102d54;
+    border-top: 1px solid #102d54;     /* Linha sutil separando do conteúdo acima */
     font-size: 12px;
-    color: #7f99b9;
+    color: #7f99b9;                    /* Azul acinzentado */
 }
 
+/* Desktop: texto um pouco maior */
 @media (min-width: 768px) {
     .footer-direitos {
         margin-top: 50px;

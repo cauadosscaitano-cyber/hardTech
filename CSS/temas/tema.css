@@ -74,7 +74,9 @@
     transition: 0.3s ease;
 }
 
-.theme__icon-part { display: none; }
+.theme__icon-part { 
+    display: none; 
+}
 
 .theme__icon::before {
     content: "";
@@ -243,8 +245,8 @@ body.dark-mode .text-blue {
     color: #f4f7fb;
 }
 
-body.dark-mode .detalhe-grid-dados,
-body.dark-mode .texto-mensagem-preview {
+body.dark-mode .detalhe-grid-dados,.detalhe-grid-dados dt,
+body.dark-mode .texto-mensagem-preview, .resumo-dados dt {
     color: #b8c6d8;
 }
 

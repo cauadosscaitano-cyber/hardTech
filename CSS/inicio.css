@@ -1,17 +1,24 @@
 /* ============================================================
+   INICIO.CSS — Estilos exclusivos da página inicial (index.html)
+   Contém: banners, grid de produtos em destaque,
+   painel lateral retrátil e correções semânticas
+   ============================================================ */
+
+/* ============================================================
    PARTE 1 — CONTEÚDO PRINCIPAL
    ============================================================ */
 
-/* ============================================================
-   1. MAIN
-   ============================================================ */
+/* Permite que elementos com posição absoluta (ex: submenus) 
+   saiam visualmente das bordas do container principal */
 main {
-    overflow: visible; /* Permite que elementos com posição absoluta saiam das bordas */
+    overflow: visible;
 }
 
 /* ============================================================
-   2. BANNER PRINCIPAL (.banner)
+   BANNER PRINCIPAL
    ============================================================ */
+
+/* Container do banner principal com fundo em degradê azul escuro */
 .banner {
     background: linear-gradient(135deg, #081f3f, #10366d);
     color: white;
@@ -21,12 +28,14 @@ main {
     box-shadow: 0 10px 25px rgba(0,0,0,.2);
 }
 
+/* Tablet: aumenta o espaçamento interno do banner */
 @media (min-width: 480px) {
     .banner {
         padding: 40px 30px;
     }
 }
 
+/* Desktop: padding maior, bordas mais arredondadas e margem inferior expandida */
 @media (min-width: 768px) {
     .banner {
         padding: 60px;
@@ -35,21 +44,21 @@ main {
     }
 }
 
-/* ============================================================
-   3. TÍTULO DO BANNER (.banner h2)
-   ============================================================ */
+/* Título do banner principal */
 .banner h2 {
     font-size: 26px;
     margin-bottom: 12px;
     line-height: 1.2;
 }
 
+/* Tablet: aumenta o tamanho da fonte do título */
 @media (min-width: 480px) {
     .banner h2 {
         font-size: 34px;
     }
 }
 
+/* Desktop: título ainda maior */
 @media (min-width: 768px) {
     .banner h2 {
         font-size: 48px;
@@ -57,9 +66,7 @@ main {
     }
 }
 
-/* ============================================================
-   4. PARÁGRAFO DO BANNER (.banner p)
-   ============================================================ */
+/* Parágrafo descritivo do banner principal */
 .banner p {
     font-size: 15px;
     margin-bottom: 20px;
@@ -67,6 +74,7 @@ main {
     line-height: 1.5;
 }
 
+/* Desktop: texto maior e mais espaçamento inferior */
 @media (min-width: 768px) {
     .banner p {
         font-size: 20px;
@@ -74,36 +82,38 @@ main {
     }
 }
 
-/* ============================================================
-   5. BOTÃO DO BANNER (.banner a.btn-banner)
-   ============================================================ */
-.banner a.btn-banner {
+/* Botão de call-to-action dentro do banner principal */
+.banner .btn-banner {
     display: inline-block;
     text-decoration: none;
     padding: 12px 22px;
     border-radius: 8px;
-    background: #d8b16f;
-    color: #081f3f;
+    background: #d8b16f; /* Dourado */
+    color: #081f3f; /* Azul escuro */
     font-weight: bold;
     font-size: 14px;
     cursor: pointer;
     transition: .3s;
 }
 
+/* Desktop: botão maior */
 @media (min-width: 768px) {
-    .banner a.btn-banner {
+    .banner .btn-banner {
         padding: 15px 30px;
         font-size: 16px;
     }
 }
 
-.banner a.btn-banner:hover {
+/* Efeito hover: botão sobe 3px */
+.banner .btn-banner:hover {
     transform: translateY(-3px);
 }
 
 /* ============================================================
-   6. BANNER PROMOCIONAL (.banner-promocional.namorados)
+   BANNER PROMOCIONAL (Dia dos Namorados)
    ============================================================ */
+
+/* Container do banner promocional com tema romântico (roxo escuro) */
 .banner-promocional.namorados {
     background: linear-gradient(135deg, #1b0926, #42123b);
     color: white;
@@ -114,12 +124,14 @@ main {
     border: 1px solid #7c2d6f;
 }
 
+/* Tablet: mais espaçamento interno */
 @media (min-width: 480px) {
     .banner-promocional.namorados {
         padding: 35px 28px;
     }
 }
 
+/* Desktop: padding maior e bordas arredondadas */
 @media (min-width: 768px) {
     .banner-promocional.namorados {
         padding: 40px;
@@ -128,13 +140,11 @@ main {
     }
 }
 
-/* ============================================================
-   7. TAG DO BANNER PROMOCIONAL (.banner-promocional .tag-promo)
-   ============================================================ */
+/* Tag "Campanha Especial" no banner promocional */
 .banner-promocional .tag-promo {
     display: inline-block;
-    background: #d8b16f;
-    color: #081f3f;
+    background: #d8b16f; /* Fundo dourado */
+    color: #081f3f; /* Texto azul escuro */
     padding: 4px 10px;
     font-size: 11px;
     font-weight: bold;
@@ -143,6 +153,7 @@ main {
     margin-bottom: 10px;
 }
 
+/* Desktop: tag ligeiramente maior */
 @media (min-width: 768px) {
     .banner-promocional .tag-promo {
         padding: 5px 12px;
@@ -151,38 +162,37 @@ main {
     }
 }
 
-/* ============================================================
-   8. TÍTULO DO BANNER PROMOCIONAL (.banner-promocional h2)
-   ============================================================ */
+/* Título do banner promocional */
 .banner-promocional h2 {
     font-size: 22px;
     margin-bottom: 10px;
     line-height: 1.2;
 }
 
+/* Tablet: título maior */
 @media (min-width: 480px) {
     .banner-promocional h2 {
         font-size: 26px;
     }
 }
 
+/* Desktop: título ainda maior */
 @media (min-width: 768px) {
     .banner-promocional h2 {
         font-size: 32px;
     }
 }
 
-/* ============================================================
-   9. PARÁGRAFO DO BANNER PROMOCIONAL (.banner-promocional p)
-   ============================================================ */
+/* Parágrafo descritivo do banner promocional */
 .banner-promocional p {
     font-size: 14px;
     margin-bottom: 18px;
     max-width: 700px;
-    color: #e2d5e8;
+    color: #e2d5e8; /* Roxo bem claro */
     line-height: 1.5;
 }
 
+/* Desktop: texto maior */
 @media (min-width: 768px) {
     .banner-promocional p {
         font-size: 16px;
@@ -190,9 +200,7 @@ main {
     }
 }
 
-/* ============================================================
-   10. BOTÃO DO BANNER PROMOCIONAL (.banner-promocional .btn-promo-link)
-   ============================================================ */
+/* Botão "Confira as Ofertas" — estilo outline (borda dourada, fundo transparente) */
 .banner-promocional .btn-promo-link {
     display: inline-block;
     text-decoration: none;
@@ -207,6 +215,7 @@ main {
     transition: .3s;
 }
 
+/* Desktop: botão maior */
 @media (min-width: 768px) {
     .banner-promocional .btn-promo-link {
         padding: 12px 25px;
@@ -214,6 +223,7 @@ main {
     }
 }
 
+/* Hover: preenche o fundo com dourado e texto fica azul escuro */
 .banner-promocional .btn-promo-link:hover {
     background: #d8b16f;
     color: #081f3f;
@@ -221,18 +231,20 @@ main {
 }
 
 /* ============================================================
-   11. GRID DE PRODUTOS (.produtos)
-   Mobile: cards horizontais, lista vertical
+   GRID DE PRODUTOS EM DESTAQUE
    ============================================================ */
+
+/* Container da lista de produtos — mobile: coluna vertical */
 .produtos {
     display: flex;
     flex-direction: column;
     gap: 12px;
+    list-style: none; /* Remove os números da <ol> */
+    padding: 0;
+    margin: 0;
 }
 
-/* ============================================================
-   12. CARD DE PRODUTO (.produto)
-   ============================================================ */
+/* Card individual de cada produto */
 .produto {
     background: white;
     border-radius: 8px;
@@ -240,39 +252,36 @@ main {
     box-shadow: 0 2px 8px rgba(0,0,0,.1);
     transition: .3s;
     display: flex;
-    flex-direction: row;
+    flex-direction: row; /* Mobile: imagem à esquerda, texto à direita */
     align-items: stretch;
     text-align: left;
     gap: 14px;
 }
 
+/* Efeito hover: card sobe 2px */
 .produto:hover {
     transform: translateY(-2px);
 }
 
-/* ============================================================
-   13. IMAGEM DO PRODUTO (.produto img)
-   ============================================================ */
-.produto img {
+/* Container da imagem do produto (tag <figure>) */
+.produto figure {
+    margin: 0;
+    padding: 0;
+    flex-shrink: 0; /* Não permite que a imagem encolha */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Imagem do produto dentro do figure */
+.produto figure img {
     width: 110px;
     height: 110px;
-    object-fit: contain;
-    flex-shrink: 0;
+    object-fit: contain; /* Mantém a proporção da imagem */
+    display: block;
 }
 
-/* ============================================================
-   14. INFO DO PRODUTO (.produto .info-produto)
-   ============================================================ */
-.produto .info-produto {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    min-width: 0;
-}
-
-/* ============================================================
-   15. TÍTULO DO PRODUTO (.produto h3)
-   ============================================================ */
+/* Nome do produto */
 .produto h3 {
     color: #081f3f;
     margin: 0 0 6px;
@@ -280,9 +289,7 @@ main {
     line-height: 1.3;
 }
 
-/* ============================================================
-   16. PARÁGRAFO DO PRODUTO (.produto p)
-   ============================================================ */
+/* Descrição curta do produto */
 .produto p {
     color: #666;
     font-size: 12px;
@@ -290,21 +297,17 @@ main {
     margin-bottom: 6px;
 }
 
-/* ============================================================
-   17. PREÇO DO PRODUTO (.produto span)
-   ============================================================ */
-.produto span {
+/* Preço do produto (tag <data>) */
+.produto data {
     display: block;
     margin: 4px 0;
     font-size: 18px;
     font-weight: bold;
-    color: #d8b16f;
+    color: #d8b16f; /* Dourado */
 }
 
-/* ============================================================
-   18. BOTÃO COMPRAR DO PRODUTO (.produto a.btn-comprar)
-   ============================================================ */
-.produto a.btn-comprar {
+/* Botão "Ver Detalhes" */
+.produto .btn-comprar {
     display: inline-block;
     text-decoration: none;
     width: auto;
@@ -317,25 +320,28 @@ main {
     text-align: center;
     cursor: pointer;
     transition: .3s;
-    margin-top: auto;
+    margin-top: auto; /* Empurra o botão para o final do card */
     align-self: flex-start;
 }
 
-.produto a.btn-comprar:hover {
+/* Hover do botão: azul mais claro */
+.produto .btn-comprar:hover {
     background: #10366d;
 }
 
 /* ============================================================
-   19. RESPONSIVIDADE — Tablet (≥ 480px)
-   Grid de 2 colunas, cards verticais
+   RESPONSIVIDADE — Tablet (≥ 480px)
+   Grid de 2 colunas, cards empilhados verticalmente
    ============================================================ */
 @media (min-width: 480px) {
+    /* Muda de flex (lista vertical) para grid de 2 colunas */
     .produtos {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
     }
 
+    /* Card empilhado: imagem em cima, texto embaixo, centralizado */
     .produto {
         flex-direction: column;
         text-align: center;
@@ -343,28 +349,33 @@ main {
         gap: 0;
     }
 
-    .produto img {
+    /* Imagem ocupa toda a largura do card */
+    .produto figure img {
         width: 100%;
         height: 200px;
     }
 
+    /* Título com margens laterais */
     .produto h3 {
         margin: 12px 0 8px;
         font-size: 15px;
     }
 
+    /* Descrição pode crescer para preencher espaço */
     .produto p {
         font-size: 13px;
         flex: 1;
         min-height: 0;
     }
 
-    .produto span {
+    /* Preço centralizado */
+    .produto data {
         margin: 12px 0;
         font-size: 20px;
     }
 
-    .produto a.btn-comprar {
+    /* Botão ocupa toda a largura do card */
+    .produto .btn-comprar {
         width: 100%;
         padding: 10px;
         align-self: stretch;
@@ -372,80 +383,80 @@ main {
 }
 
 /* ============================================================
-   20. RESPONSIVIDADE — Desktop (≥ 768px)
+   RESPONSIVIDADE — Desktop (≥ 768px)
    Grid de 3 colunas
    ============================================================ */
 @media (min-width: 768px) {
+    /* Grid de 3 colunas no desktop */
     .produtos {
         grid-template-columns: repeat(3, 1fr);
         gap: 25px;
     }
 
+    /* Mais padding interno nos cards */
     .produto {
         padding: 20px;
     }
 
-    .produto img {
+    /* Imagens um pouco maiores */
+    .produto figure img {
         height: 220px;
     }
 
+    /* Título maior */
     .produto h3 {
         margin: 15px 0;
         font-size: 16px;
     }
 
+    /* Descrição com altura mínima para alinhar cards */
     .produto p {
         font-size: 14px;
         min-height: 50px;
     }
 
-    .produto span {
+    /* Preço maior */
+    .produto data {
         margin: 15px 0;
         font-size: 24px;
     }
 
-    .produto a.btn-comprar {
+    /* Botão com mais padding */
+    .produto .btn-comprar {
         padding: 12px;
     }
 }
 
 /* ============================================================
-   PARTE 2 — PAINEL LATERAL RETRÁTIL
-   (Aparece depois do conteúdo no HTML)
+   PARTE 2 — PAINEL LATERAL RETRÁTIL (Carrinho + Cupons)
    ============================================================ */
 
-/* ============================================================
-   21. PAINEL LATERAL (.painel-lateral)
-   ============================================================ */
+/* Painel lateral fixo no lado direito da tela */
 .painel-lateral {
     position: fixed;
-    top: 90px;
+    top: 90px; /* Abaixo do header */
     right: 0;
     width: 300px;
-    height: calc(100vh - 90px);
+    height: calc(100vh - 90px); /* Ocupa toda a altura restante */
     background: #0d1f38;
     border-left: 3px solid #d8b16f;
     padding: 25px 20px;
     box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
     box-sizing: border-box;
-    overflow-y: auto;
+    overflow-y: auto; /* Scroll se o conteúdo for maior que a tela */
     z-index: 2000;
-    transform: translateX(100%);
+    transform: translateX(100%); /* Escondido à direita por padrão */
     visibility: hidden;
     transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), visibility 0.4s;
 }
 
-/* ============================================================
-   22. PAINEL LATERAL — ESTADO ABERTO (.painel-lateral.aberto)
-   ============================================================ */
+/* Painel aberto: desliza para dentro da tela */
 .painel-lateral.aberto {
     transform: translateX(0);
     visibility: visible;
 }
 
-/* ============================================================
-   23. BOTÃO DE ABRIR O PAINEL (.btn-aba-toggle)
-   ============================================================ */
+/* Botão "aba" que fica na borda direita para abrir o painel */
 .btn-aba-toggle {
     position: fixed;
     top: 130px;
@@ -462,28 +473,27 @@ main {
     cursor: pointer;
     border-radius: 12px 0 0 12px;
     box-shadow: -5px 2px 12px rgba(0, 0, 0, 0.3);
-    writing-mode: vertical-rl;
-    transform: rotate(180deg);
+    writing-mode: vertical-rl; /* Texto na vertical */
+    transform: rotate(180deg); /* Gira o texto para ficar legível */
     white-space: nowrap;
     transition: background 0.3s, color 0.3s;
 }
 
-/* ============================================================
-   24. BOTÃO DE ABRIR — OCULTO QUANDO PAINEL ABERTO
-   ============================================================ */
+/* Esconde o botão aba quando o painel está aberto */
 .painel-lateral.aberto ~ .btn-aba-toggle,
 .btn-aba-toggle.oculto {
     opacity: 0;
     pointer-events: none;
 }
 
-.btn-aba-toggle.oculto {
-    transition: opacity 0.3s;
+/* Hover do botão aba: fundo azul escuro, texto branco */
+.btn-aba-toggle:hover {
+    background: #081f3f;
+    color: #ffffff;
+    outline: 1px solid #d8b16f;
 }
 
-/* ============================================================
-   25. BOTÃO DE FECHAR DENTRO DO PAINEL (.btn-fechar-aside)
-   ============================================================ */
+/* Botão "Fechar" dentro do painel lateral */
 .btn-fechar-aside {
     display: block;
     width: 100%;
@@ -501,32 +511,20 @@ main {
     transition: background 0.3s, color 0.3s;
 }
 
+/* Hover do botão fechar: preenche com dourado */
 .btn-fechar-aside:hover {
     background: #d8b16f;
     color: #081f3f;
 }
 
-/* ============================================================
-   26. HOVER DO BOTÃO DE ABRIR
-   ============================================================ */
-.btn-aba-toggle:hover {
-    background: #081f3f;
-    color: #ffffff;
-    outline: 1px solid #d8b16f;
-}
-
-/* ============================================================
-   27. DIVISOR DENTRO DO PAINEL (.divisor-resumo)
-   ============================================================ */
+/* Linha divisória entre widgets do painel */
 .divisor-resumo {
     border: 0;
     border-top: 1px solid #17345d;
     margin: 25px 0;
 }
 
-/* ============================================================
-   28. TÍTULO DO WIDGET (.widget-aside h3)
-   ============================================================ */
+/* Título de cada widget dentro do painel (Carrinho, Cupom) */
 .widget-aside h3 {
     font-size: 15px;
     color: #ffffff;
@@ -537,18 +535,14 @@ main {
     margin-bottom: 15px;
 }
 
-/* ============================================================
-   29. LISTA DO CARRINHO (.lista-carrinho-aside)
-   ============================================================ */
+/* Lista de itens do carrinho */
 .lista-carrinho-aside {
     list-style: none;
     padding: 0;
     margin-bottom: 20px;
 }
 
-/* ============================================================
-   30. ITEM DA LISTA (.lista-carrinho-aside li)
-   ============================================================ */
+/* Cada item da lista do carrinho */
 .lista-carrinho-aside li {
     display: flex;
     justify-content: space-between;
@@ -557,24 +551,18 @@ main {
     color: #e8eef8;
 }
 
-/* ============================================================
-   31. NOME DO ITEM (.lista-carrinho-aside .item-nome)
-   ============================================================ */
+/* Nome do produto no carrinho */
 .lista-carrinho-aside .item-nome {
     font-weight: 500;
 }
 
-/* ============================================================
-   32. PREÇO DO ITEM (.lista-carrinho-aside .item-preco)
-   ============================================================ */
+/* Preço do produto no carrinho */
 .lista-carrinho-aside .item-preco {
     color: #d8b16f;
     font-weight: 600;
 }
 
-/* ============================================================
-   33. TOTAL DO CARRINHO (.total-aside)
-   ============================================================ */
+/* Linha do total do carrinho */
 .total-aside {
     display: flex;
     justify-content: space-between;
@@ -587,9 +575,7 @@ main {
     padding-top: 12px;
 }
 
-/* ============================================================
-   34. BOTÃO FINALIZAR DO CARRINHO (.btn-finalizar-aside)
-   ============================================================ */
+/* Botão "Fechar Pedido" */
 .btn-finalizar-aside {
     width: 100%;
     padding: 12px;
@@ -605,27 +591,24 @@ main {
     transition: all 0.3s ease;
 }
 
+/* Hover do botão finalizar: fundo branco */
 .btn-finalizar-aside:hover {
     background: #ffffff;
     color: #081f3f;
     transform: translateY(-2px);
 }
 
-/* ============================================================
-   35. CAIXA DE CUPOM (.cupom-box)
-   ============================================================ */
+/* Caixa de cupom de desconto */
 .cupom-box {
     display: block;
     background: #071a35;
-    border: 1px dashed #d8b16f;
+    border: 1px dashed #d8b16f; /* Borda tracejada dourada */
     padding: 15px;
     text-align: center;
     border-radius: 6px;
 }
 
-/* ============================================================
-   36. CÓDIGO DO CUPOM (.cupom-codigo)
-   ============================================================ */
+/* Código do cupom em destaque */
 .cupom-codigo {
     display: inline-block;
     font-weight: 700;
@@ -638,9 +621,7 @@ main {
     letter-spacing: 1px;
 }
 
-/* ============================================================
-   37. TEXTO DO CUPOM (.cupom-box p)
-   ============================================================ */
+/* Texto descritivo do cupom */
 .cupom-box p {
     font-size: 13px;
     color: #b8c6d8;
@@ -648,13 +629,39 @@ main {
     line-height: 1.4;
 }
 
-/* ============================================================
-   38. RESPONSIVIDADE — PAINEL NO CELULAR
-   ============================================================ */
+/* Celular: painel menor e ajustado ao topo */
 @media (max-width: 768px) {
     .painel-lateral {
         top: 70px;
         width: 270px;
         height: calc(100vh - 70px);
     }
+}
+
+/* ============================================================
+   CORREÇÕES SEMÂNTICAS (tags substituídas por semântica pura)
+   ============================================================ */
+
+/* hgroup usado no header para agrupar logo + título */
+hgroup.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+}
+
+/* Lista de ícones de redes sociais no footer */
+ul.iconos-redes {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+/* Cada ícone de rede social */
+ul.iconos-redes li {
+    margin: 0;
+    padding: 0;
 }
