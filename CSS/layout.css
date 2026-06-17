@@ -1,15 +1,3 @@
-/* ============================================================
-   LAYOUT.CSS — Estilos compartilhados por TODAS as páginas
-   Contém: reset global, header fixo, search form animado,
-   menu hambúrguer, navegação lateral, submenus,
-   conteúdo principal (.conteudo) e footer
-   ============================================================ */
-
-/* ============================================================
-   RESET GLOBAL
-   Zera margens/paddings e usa border-box em todos os elementos
-   ============================================================ */
-
 /* Remove margens e paddings padrão de todos os elementos
    e faz com que padding e borda sejam incluídos no cálculo de largura/altura */
 * {
@@ -285,7 +273,7 @@ header {
 summary::-webkit-details-marker { display: none; }
 
 /* Remove o marcador de lista padrão do <summary> */
-summary { list-style: none; }
+summary { list-style: none; }  
 
 /* Barra de navegação lateral fixa */
 nav {
@@ -505,7 +493,7 @@ summary:hover {
 /* Tablet/Desktop: 4 colunas lado a lado */
 @media (min-width: 768px) {
     .footer-container {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(4, 1fr);   /* número e a largura das colunas em um contêiner CSS Grid, repeat(quantidade, tamanho) */
         gap: 40px;
     }
 }
